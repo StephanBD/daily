@@ -39,70 +39,6 @@
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js"></script> -->
 
 
-	<!-----------------------menu----------------------->
-	<script>
-		const query = (node) => document.querySelector(node);
-
-		const animatedMenu = query("#animated-menu");
-		const navList = query("#nav-list");
-		const back = query("#back");
-		let backPosition = {}
-
-		let tl = gsap.timeline({})
-
-
-		navList.addEventListener("click", (e) => {
-			const bg = e.target.dataset.bg
-			if (bg) {
-				let x = e.target.offsetLeft - back.offsetLeft
-				let y = e.target.offsetTop - back.offsetLeft
-
-				tl
-					.to(back, { duration: 0.2, scaleY: 0.5, scaleX: 1.2, ease: "power2.inOut", x: x, y: y, background: bg, },)
-					.to(back, { duration: .2, scaleY: 1, scaleX: 1, ease: "power2.inOut", },)
-
-
-				for (let index = 0; index < navList.children.length - 1; index++) {
-					navList.children[index].classList.remove("t-light", "active");
-				}
-
-				e.target.classList.add("t-light", "active")
-
-				animatedMenu.className = ""
-				animatedMenu.style.background = bg
-				back.style.background = bg
-			}
-		})
-
-
-
-
-		function reportWindowSize() {
-			const active = navList.querySelector(".active")
-
-			let x = active.offsetLeft - back.offsetLeft
-			let y = active.offsetTop - back.offsetLeft
-			tl
-				.to(back, { duration: 0, scaleY: 1, scaleX: 1, ease: "power2.inOut", x: x, y: y },)
-		}
-		reportWindowSize()
-		// const mql = window.matchMedia('screen and (max-width: 576px)');
-		// window.onresize = reportWindowSize;
-
-
-		window.addEventListener('resize', () => {
-			reportWindowSize()
-			// const active = navList.querySelector(".active")
-
-			// let x = active.offsetLeft - back.offsetLeft
-			// let y = active.offsetTop - back.offsetLeft
-			// tl
-			// 	.to(back, { duration: 0, scaleY: 1, scaleX: 1, ease: "power2.inOut", x: x, y: y },)
-		});
-
-
-
-	</script>
 
 	<!--******************************************-->
 	<section class="bg-orange   crop">
@@ -473,7 +409,7 @@
 		</div>
 	</section>
 	<!-- --------------- -->
-	<script src="js/music.js"></script>
+
 
 	<!--******************************************-->
 	<!-- <section>
@@ -926,64 +862,9 @@
 		</div>
 	</footer>
 
-
+	<!-- === === === === === === script === === === === === === -->
+	<script src="js/music.js"></script>
 </body>
-<!-- === === === === === === script === === === === === === -->
-
-<script>
-
-
-	const modalOpen = query("#modal-open")
-	const modal = query("#modal")
-	const modalAcept = query("#modal-accept")
-
-
-
-
-	modalOpen.addEventListener("click", (e) => {
-		modal.classList.remove("hide")
-	})
-
-	modalAcept.addEventListener("click", (e) => {
-		modal.classList.add("hide")
-	})
-	modal.addEventListener("click", (e) => {
-		// if (e.target.id == modal.id) {
-		// 	modal.classList.add("hide")
-		// }
-		e.target.id == modal.id ? modal.classList.add("hide") : false;
-	})
-
-</script>
-
-<!-----------------------dark mode----------------------->
-<script type="text/javascript">// Apply the cached theme on reload
-	const theme = localStorage.getItem("theme");
-	if (theme) {
-		// body.classList.add(theme);
-		document.body.classList.toggle(theme);
-	}
-	// Select the button
-	const darkBtn = document.querySelector("#toggledark");
-	// Listen for a click on the button
-	darkBtn.addEventListener("click", function () { switchTheme("dark-theme"); });
-	function switchTheme(themeName) {
-		document.body.classList.toggle(themeName);
-		if (!theme) {
-			localStorage.setItem("theme", "dark-theme");
-		} else {
-			localStorage.removeItem("theme");
-		}
-	}</script>
-
-<!-----------------------html font size----------------------->
-<script>
-	var html = document.getElementsByTagName('html')[0];
-	function fontSize(size = "10%") {
-		html.style.fontSize = size
-	}
-</script>
-<!---------------------------------------------->
 
 
 

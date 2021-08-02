@@ -1,3 +1,5 @@
+const query = node => document.querySelector(node);
+
 const songImage = document.querySelector(".day-9-portrait");
 const songTitle = document.getElementById("day-9-title");
 const songArtist = document.getElementById("day-9-artist");
@@ -28,25 +30,25 @@ const songs = [
     name: jacinto1,
     displayName: "Electric Chill Machine",
     artist: "Jacinto Desing",
-		img: jacinto1_img 
+    img: jacinto1_img
   },
   {
     name: jacinto2,
     displayName: "Seven nation Armi (Remix)",
     artist: "Jacinto Desing",
-		img: jacinto2_img 
+    img: jacinto2_img
   },
   {
     name: jacinto3,
     displayName: "Goodnight, Disco Queen",
     artist: "Jacinto Desing",
-		img: jacinto3_img 
+    img: jacinto3_img
   },
   {
     name: metric1,
     displayName: "Front Row (Remix)",
     artist: "Metric/Jacinto Desing",
-		img: metric1_img 
+    img: metric1_img
   }
 ];
 
@@ -178,3 +180,119 @@ music.addEventListener("timeupdate", updateProgressBar);
 music.addEventListener("ended", nextSong);
 songsList.addEventListener("click", selectSong);
 progressContainer.addEventListener("click", setProgressBar);
+
+/**************************************************/
+
+const animatedMenu = query("#animated-menu");
+const navList = query("#nav-list");
+const back = query("#back");
+let backPosition = {};
+
+let tl = gsap.timeline({});
+
+navList.addEventListener("click", e => {
+  const bg = e.target.dataset.bg;
+  if (bg) {
+    let x = e.target.offsetLeft - back.offsetLeft;
+    let y = e.target.offsetTop - back.offsetLeft;
+
+    tl.to(back, {
+      duration: 0.2,
+      scaleY: 0.5,
+      scaleX: 1.2,
+      ease: "power2.inOut",
+      x: x,
+      y: y,
+      background: bg
+    }).to(back, { duration: 0.2, scaleY: 1, scaleX: 1, ease: "power2.inOut" });
+
+    for (let index = 0; index < navList.children.length - 1; index++) {
+      navList.children[index].classList.remove("t-light", "active");
+    }
+
+    e.target.classList.add("t-light", "active");
+
+    animatedMenu.className = "";
+    animatedMenu.style.background = bg;
+    back.style.background = bg;
+  }
+});
+
+function reportWindowSize() {
+  const active = navList.querySelector(".active");
+
+  let x = active.offsetLeft - back.offsetLeft;
+  let y = active.offsetTop - back.offsetLeft;
+  tl.to(back, {
+    duration: 0,
+    scaleY: 1,
+    scaleX: 1,
+    ease: "power2.inOut",
+    x: x,
+    y: y
+  });
+}
+reportWindowSize();
+// const mql = window.matchMedia('screen and (max-width: 576px)');
+// window.onresize = reportWindowSize;
+
+window.addEventListener("resize", () => {
+  reportWindowSize();
+  // const active = navList.querySelector(".active")
+
+  // let x = active.offsetLeft - back.offsetLeft
+  // let y = active.offsetTop - back.offsetLeft
+  // tl
+  // 	.to(back, { duration: 0, scaleY: 1, scaleX: 1, ease: "power2.inOut", x: x, y: y },)
+});
+
+/**************************************************/
+
+const modalOpen = query("#modal-open");
+const modal = query("#modal");
+const modalAcept = query("#modal-accept");
+
+modalOpen.addEventListener("click", e => {
+  modal.classList.remove("hide");
+});
+
+modalAcept.addEventListener("click", e => {
+  modal.classList.add("hide");
+});
+modal.addEventListener("click", e => {
+  // if (e.target.id == modal.id) {
+  // 	modal.classList.add("hide")
+  // }
+  e.target.id == modal.id ? modal.classList.add("hide") : false;
+});
+
+/**************************************************/
+const theme = localStorage.getItem("theme");
+if (theme) {
+  // body.classList.add(theme);
+  document.body.classList.toggle(theme);
+}
+// Select the button
+const darkBtn = document.querySelector("#toggledark");
+// Listen for a click on the button
+darkBtn.addEventListener("click", function() {
+  switchTheme("dark-theme");
+});
+function switchTheme(themeName) {
+  document.body.classList.toggle(themeName);
+  if (!theme) {
+    localStorage.setItem("theme", "dark-theme");
+  } else {
+    localStorage.removeItem("theme");
+  }
+}
+/**************************************************/
+var html = document.getElementsByTagName("html")[0];
+
+// function fontSize(size = "10%") {
+//    html.style.fontSize = size
+// }
+
+function fontSize(size = "10%") {
+  html.style.fontSize = size;
+}
