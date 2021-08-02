@@ -5,11 +5,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="shortcut icon" href="" type="image/x-icon">
+	<!-- <link rel="shortcut icon" href="" type="image/x-icon"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
 		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
 		crossorigin="anonymous" />
 	<link rel="stylesheet" href="src/scss/main.scss">
+	<link rel="shortcut icon" href="img/icons8-puzle.svg" type="image/x-icon">
 </head>
 
 <body class="_screen_size">
@@ -190,10 +191,10 @@
 
 				<h3 class="mt-3 t-bold">Payment information</h3>
 				<label for="name2">Name on Credit Card</label>
-				<input class="w-100%" type="text" name="name" id="name2" placeholder="name">
+				<input class="w-100% " type="text" name="name" id="name2" placeholder="name">
 
 				<label for="number">Credit Card number</label>
-				<input class="w-100%" type="number" name="name" id="number" placeholder="name">
+				<input class="w-100% " type="number" name="name" id="number" placeholder="name">
 
 				<label for="extend">Expends on</label>
 				<div class="input-group">
@@ -210,7 +211,7 @@
 				</div>
 
 				<label for="CVC" class="d-block">CVC</label>
-				<input type="text" class="w-50%">
+				<input type="text" class="w-50% ">
 				<small class="t-md">What is CVC?</small>
 
 				<button class="day-2-pay btn-xl">Pay</button>
@@ -327,7 +328,7 @@
 						<i class="fas fa-comment-alt mr"></i>Send message
 					</p>
 					<button class="btn bg-info-light mx">contacts</button>
-					<button class="btn bg-gray-light-t ">report user</button>
+					<button class="btn bg-gray-light ">report user</button>
 					<!-- <button>button</button>
 					<button class="btn-border ">button</button>
 					<button class=" ">button</button> -->
@@ -401,7 +402,7 @@
 
 			<h1 class="t-10 t-bold">404</h1>
 			<p>You have entered into the void</p>
-			<button class="btn-xl bg-purple-t my t-bold day-8-btn">
+			<button class="btn-xl bg-purple t-light my t-bold day-8-btn">
 				Get me out of here
 				<i class="fas fa-rocket ml "></i>
 			</button>
@@ -472,160 +473,10 @@
 		</div>
 	</section>
 	<!-- --------------- -->
-	<script>
-		const songImage = document.querySelector(".day-9-portrait")
-		const songTitle = document.getElementById("day-9-title")
-		const songArtist = document.getElementById("day-9-artist")
-		const music = document.querySelector("audio")
-		const progressContainer = document.getElementById("progress-container")
-		const progress = document.getElementById("progress")
-		const currentTimeEl = document.getElementById("current-time")
-		const durationEl = document.getElementById("duration")
-		const prevBtn = document.querySelector("#day-9-backward")
-		const playBtn = document.querySelector("#day-9-play")
-		const nextBtn = document.querySelector("#day-9-forward")
-		const songsList = document.querySelector(".day-9-list")
-		// music
-		const songs = [
-			{ name: "jacinto-1", displayName: "Electric Chill Machine", artist: "Jacinto Desing" },
-			{ name: "jacinto-2", displayName: "Seven nation Armi (Remix)", artist: "Jacinto Desing" },
-			{ name: "jacinto-3", displayName: "Goodnight, Disco Queen", artist: "Jacinto Desing" },
-			{ name: "metric-1", displayName: "Front Row (Remix)", artist: "Metric/Jacinto Desing" }
-		]
-
-		// -----
-		// check if Playing
-		let isPlaying = false
-		let isReady = true
-		// play
-		function playSong() {
-			isPlaying = true
-			playBtn.classList.replace("fa-play-circle", "fa-pause-circle")
-			playBtn.setAttribute("title", "pause")
-			music.play()
-		}
-		// pause
-		function pauseSong() {
-			isPlaying = false
-			playBtn.classList.replace("fa-pause-circle", "fa-play-circle")
-			playBtn.setAttribute("title", "play")
-			music.pause()
-		}
-		// prevSong 
-		let songIndex = 0
-		// prevSong
-		function prevSong() {
-			songIndex--
-			if (songIndex < 0) {
-				songIndex = songs.length - 1
-			}
-			loadSong(songs[songIndex])
-			playSong()
-		}
-		// nextSong 
-		function nextSong() {
-			songIndex++
-
-			if (songIndex > songs.length - 1) {
-				songIndex = 0
-			}
-			loadSong(songs[songIndex])
-			playSong()
-		}
-		// 
-		playBtn.addEventListener("click", () => {
-			isPlaying ? pauseSong() : playSong()
-		})
-		// update dom
-		function loadSong(song) {
-
-			// console.log(song);
-			songTitle.textContent = song.displayName
-			songArtist.textContent = song.artist
-			music.src = `music/${song.name}.mp3`
-			songImage.src = `img/${song.name}.jpg`
-
-		}
-		// update progress bar
-
-		function updateProgressBar(e) {
-			if (isPlaying) {
-				const { duration, currentTime } = e.srcElement
-				const progressPercent = (currentTime / duration) * 100
-				progress.style.width = `${progressPercent}%`
-				// 
-				const durationMinutes = Math.floor(duration / 60)
-				let durationSeconds = Math.floor(duration % 60)
-				if (durationSeconds < 10) {
-					durationSeconds = `0${durationSeconds}`
-				}
-				// delay
-				if (durationSeconds) {
-					durationEl.textContent = `${durationMinutes}:${durationSeconds}`
-					// 
-					const currentMinutes = Math.floor(currentTime / 60)
-					let currentSeconds = Math.floor(currentTime % 60)
-					if (currentSeconds < 10) {
-						currentSeconds = `0${currentSeconds}`
-					}
-					currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`
-				}
-			}
-		}
-		// setProgressBar
-		function setProgressBar(e) {
-			const width = this.clientWidth
-			const clickX = e.offsetX
-			const { duration } = music
-			// console.log((clickX / width) * duration);
-			music.currentTime = (clickX / width) * duration
-		}
-		// 
-		function renderSongsList() {
-			let listSongstemplate = ``
-			songs.forEach((song, index) => {
-
-				const classActive = songIndex == index ? "day-9-li-active" : "day-9-li"
-				const template = `	
-					<li class="${classActive}" id="${index}">
-						${song.displayName}
-					</li>`
-				// <span class="mx-a float-right t-sm">${song.duration}</span>
-				listSongstemplate += template
-			});
-			songsList.innerHTML += listSongstemplate
-		}
-		// select song
-		function selectSong(e) {
-
-			if (e.target.id != songIndex && isReady && e.target.id) {
-				isReady = false
-				songIndex = e.target.id
-				loadSong(songs[songIndex])
-				playSong()
-				// console.log(e.target);
-				document.querySelector(".day-9-li-active") ?
-					document.querySelector(".day-9-li-active").classList.replace("day-9-li-active", "day-9-li")
-					: e.target.classList.replace("day-9-li", "day-9-li-active")
-				e.target.classList.replace("day-9-li", "day-9-li-active")
-				isReady = true
-			}
-		}
-		// on load
-		loadSong(songs[songIndex])
-		renderSongsList()
-		// event
-		prevBtn.addEventListener("click", prevSong)
-		nextBtn.addEventListener("click", nextSong)
-		music.addEventListener("timeupdate", updateProgressBar)
-		music.addEventListener("ended", nextSong)
-		songsList.addEventListener("click", selectSong)
-		progressContainer.addEventListener("click", setProgressBar)
-
-	</script>
+	<script src="js/music.js"></script>
 
 	<!--******************************************-->
-	<section>
+	<!-- <section>
 		<div class="content  t-light day-10">
 			<i class="bg-info fab fa-twitter"></i>
 			<i class="bg-danger fab fa-google-plus-g"></i>
@@ -633,32 +484,32 @@
 			<i class="bg-danger-dark fas fa-thumbtack"></i>
 			<i class="bg-info-dark fab fa-facebook-f"></i>
 		</div>
-	</section>
+	</section> -->
 
 	<!--******************************************-->
 
 	<section class=" content-m">
 		<!--  -->
 		<!-- <div class="content felx "> -->
-		<button class="day-11-btn bg-info-t round mb">Show flash message</button>
+		<button class="day-11-btn bg-info round mb">Show flash message</button>
 
-		<div class=" t-bold  bg-success-light-t day-11 mb crop relative  flex jc-center ai-center">
+		<div class="t-dark t-bold  bg-success-light day-11 mb crop relative  flex jc-center ai-center">
 			<span class=" ">Success</span>
 			<span class="right center absolute bg-success flex jc-center ai-center h-100% w-4">
 				<i class="fas fa-check"></i>
 			</span>
 		</div>
 
-		<div class=" t-bold  bg-danger-light-t day-11 mb crop relative  flex jc-center ai-center">
+		<div class="t-dark t-bold  bg-danger-light day-11 mb crop relative  flex jc-center ai-center">
 			<span class=" ">Danger</span>
 			<span class="right center absolute bg-danger flex jc-center ai-center h-100% w-4">
 				<i class="fas fa-times"></i>
 			</span>
 		</div>
 
-		<div class=" t-bold  bg-warning-light t-white day-11 mb crop relative  flex jc-center ai-center">
+		<div class="t-dark t-bold  bg-warning-light  day-11 mb crop relative  flex jc-center ai-center">
 			<span class=" ">Warning</span>
-			<span class="right center absolute bg-warning-t flex jc-center ai-center h-100% w-4">
+			<span class="right center absolute bg-warning flex jc-center ai-center h-100% w-4">
 				<i class="fas fa-exclamation"></i>
 			</span>
 		</div>
@@ -842,13 +693,13 @@
 
 		<div id="modal" class=" modal-bg  flex jc-center ai-center day-16 hide z-modal">
 			<div class="container-sm bg-white shadow   ">
-				<div class="bg-light h-200 t-center relative">
-					<i class=" fas fa-chevron-left t-dark absolute left-10% top-10% t-info-hover"></i>
+				<div class="bg-light h-200 t-center relative img-container">
+					<!-- <i class=" fas fa-chevron-left t-dark absolute left-10% top-10% t-info-hover"></i> -->
 					<img loading="lazy" src="../img/settings.svg" alt="">
 				</div>
 				<!--  -->
-				<div class="py-2 px-3  bg-dark-t gap-col">
-					<p class="">Settings</p>
+				<div class="py-2 px-3  bg-dark gap-col">
+					<p class="t-light">Enable power</p>
 
 					<label class="switch t-4 ">
 						<input type="checkbox" checked>
@@ -858,14 +709,14 @@
 					</label>
 					<!--  -->
 
-					<p class="">Connect with APIs</p>
+					<!-- <p class="t-light">Connect with APIs</p> -->
 
-					<div class=" input-group mb-3 t-3  round">
+					<!-- <div class=" input-group mb-3 t-3  round">
 						<i class="fas fa-search input-icon bg-danger round-left-2"></i>
 						<input class="input-control round-right-2" placeholder="placeholder" type="text">
-					</div>
+					</div> -->
 
-					<button class=" bg-success   btn-xl round-2 " id="modal-accept">Accept</button>
+					<button class="btn-right bg-success   btn-xl round-2 " id="modal-accept">Accept</button>
 				</div>
 			</div>
 		</div>
@@ -874,7 +725,7 @@
 
 	<!--******************************************-->
 	<section class="bg-info-light">
-		<div class="content day-17">
+		<div class="content-sm day-17">
 			<div class="img-container t-light bg-dark pb-2 day-17-hero">
 				<img loading="lazy"
 					src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1116&q=80"
@@ -885,7 +736,7 @@
 			</div>
 			<!-- ---------- -->
 			<div class="bg-white day-17-content relative z-normal">
-				<button class="btn bold bg-purple-t round-1 absolute day-17-btn ">Join now</button>
+				<button class="btn bold bg-purple t-light round-1 absolute day-17-btn ">Join now</button>
 				<div class="flex jc-between ai-center">
 					<span class="t-3">Private chat</span>
 					<span class=" flex-auto mx day-17-dots"></span>
@@ -900,8 +751,8 @@
 	</section>
 	<!--******************************************-->
 	<section class="bg-gray">
-		<div class=" bg-dark-t  px-2 pt pb-3  t-center day-18-top relative content-sm">
-			<button class="absolute top right bg-transparent t-2">
+		<div class=" bg-dark t-light  px-2 pt pb-3  t-center day-18-top relative content-sm">
+			<button class="absolute top right bg-transparent t-2 box-3">
 				<i class="fas fa-times"></i>
 			</button>
 
@@ -1069,7 +920,7 @@
 
 	<!--==========================================-->
 	<footer class="bg-dark t-center ">
-		<div class="content flex jc-center">
+		<div class="content-m gap-row flex jc-center">
 			<button class="bg-orange "><a href="second.html">second</a></button>
 			<button class="bg-white" id="toggledark"> <i class="fas fa-moon"></i></button>
 		</div>

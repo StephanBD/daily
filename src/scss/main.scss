@@ -6,24 +6,44 @@
 // //==========================custome variables==========================*/
 @import "variables.scss";
 // //==========================================================*/
-@import "settings";
-@import "layout";
-@import "components";
-@import "utilities";
+// @import "settings";
+// @import "layout";
+// @import "utilities";
 // ------------------------
-// @import "utilities/border";
-// @import "utilities/margin-padding";
-// @import "utilities/utilities";
-// @import "utilities/filter";
-// @import "utilities/images";
-// @import "utilities/modal";
-// @import "utilities/shadow";
-// @import "utilities/shapes";
-// @import "utilities/transform";
-// @import "utilities/width-height";
-// @import "utilities/background-colors";
-// @import "utilities/typography";
-// @import "utilities/alignment";
+@import "settings/maps";
+@import "settings/functions";
+@import "settings/mixins";
+
+@import "base";
+// @import "settings/base";
+@import "settings/forms";
+@import "settings/dark-mode";
+@import "settings/buttons";
+@import "settings/toggles";
+
+// ------------------------
+@import "layout/columns";
+@import "layout/flex";
+@import "layout/grid";
+@import "layout/col";
+@import "layout/layout";
+
+// ------------------------
+@import "components";
+// ------------------------
+@import "utilities/border";
+@import "utilities/margin-padding";
+@import "utilities/utilities";
+@import "utilities/filter";
+@import "utilities/images";
+@import "utilities/modal";
+@import "utilities/shadow";
+@import "utilities/shapes";
+@import "utilities/transform";
+@import "utilities/width-height";
+@import "utilities/background-colors";
+@import "utilities/typography";
+@import "utilities/alignment";
 
 // ------------------------
 @import "debug";
@@ -840,7 +860,7 @@ section {
 
     @include from($sm) {
       @include px-($padding * 3);
-      @include py-($padding);
+      @include py-($padding * 2);
     }
   }
   &-body {
@@ -1697,4 +1717,8 @@ section {
   &:hover > img {
     transform: scale(1.2);
   }
+}
+
+input, select {
+  padding: Div($padding , 2);
 }
