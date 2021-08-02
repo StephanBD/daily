@@ -1,0 +1,1700 @@
+@use "sass:math";
+@import "0_reset/minireset.scss";
+
+@import "defaultVariables.scss";
+
+// //==========================custome variables==========================*/
+@import "variables.scss";
+// //==========================================================*/
+@import "settings";
+@import "layout";
+@import "components";
+@import "utilities";
+// ------------------------
+// @import "utilities/border";
+// @import "utilities/margin-padding";
+// @import "utilities/utilities";
+// @import "utilities/filter";
+// @import "utilities/images";
+// @import "utilities/modal";
+// @import "utilities/shadow";
+// @import "utilities/shapes";
+// @import "utilities/transform";
+// @import "utilities/width-height";
+// @import "utilities/background-colors";
+// @import "utilities/typography";
+// @import "utilities/alignment";
+
+// ------------------------
+@import "debug";
+
+section {
+  @include flex-dcia(column, center, center);
+  @include py-(60px);
+  @include from($md) {
+    @include py-(200px);
+  }
+}
+
+.day-1 {
+  @include grid-crjaj(1fr, none, center, center);
+  @include from($sm) {
+    @include grid-crjaj(1fr 1fr, none, center, center);
+  }
+  z-index: 5;
+  box-shadow: 0px 0px 0px $shadow_color;
+  border-radius: $border-radius * 5;
+  transition: box-shadow 0.3s;
+  // max-width: 700px;
+
+  &:hover .day-1-bg-1,
+  &:hover .day-1-bg-2 {
+    transform: rotate(0deg) scaleX(1.01) scaleY(1.02);
+  }
+  &:hover {
+    box-shadow: 0px 5px 7px $shadow_color;
+  }
+
+  &-bg-1 {
+    z-index: -10;
+    transform: rotate(7deg) scale(1);
+    transition: transform 0.5s;
+    opacity: 0.4;
+    border-radius: $border-radius * 5;
+  }
+  &-bg-2 {
+    z-index: -10;
+    transform: rotate(-7deg) scale(1);
+    transition: transform 0.5s;
+    opacity: 0.4;
+    border-radius: $border-radius * 5;
+  }
+
+  & > *:not(div) {
+    z-index: 10;
+  }
+  &-col-2 {
+    // @include px-($padding);
+    @include p-($padding);
+    @include from($sm) {
+      @include p-($padding * 3);
+      border-top-right-radius: $border-radius * 5;
+      border-bottom-right-radius: $border-radius * 5;
+    }
+    background: rgb(242, 85, 33);
+    background: linear-gradient(
+      291deg,
+      rgba(242, 85, 33, 1) 0%,
+      rgba(220, 53, 69, 1) 100%
+    );
+  }
+  &-col-1 {
+    @include py-($padding);
+    @include from($sm) {
+      @include py-($padding * 3);
+      border-top-left-radius: $border-radius * 5;
+      border-bottom-left-radius: $border-radius * 5;
+    }
+    background: rgb(242, 85, 33);
+    background: linear-gradient(
+      291deg,
+      rgba(242, 85, 33, 1) 0%,
+      rgba(220, 53, 69, 1) 100%
+    );
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid Var(light);
+    color: Var(light);
+
+    &:focus {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid Var(light);
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+    &:not(:placeholder-shown) ~ label,
+    &:focus ~ label {
+      border: none;
+      transform: translateY(-100%);
+      font-size: $font-size * 0.7;
+    }
+  }
+
+  &-btn {
+    background-color: transparent;
+    border: 1px solid Var(light);
+    color: Var(light);
+    font-size: 1.2rem;
+    @include from($sm) {
+      @include flex-12(6);
+      font-size: 1.5rem;
+    }
+  }
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+    // transform: translateY(-100%);
+  }
+}
+
+//-----------------------------------------------------*/
+.day-2 {
+  @include img-container();
+  // height: 1000px;
+
+  &-product {
+    @include from($md) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    color: white;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      0deg,
+      rgba(2, 0, 36, 0.748) 0%,
+      rgba(33, 33, 178, 0.7111022556709707) 35%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  &-content {
+    @include grid-crjaj(1fr, fit-content 1fr, $justify-content: center);
+    @include from($md) {
+      @include grid-crjaj(1fr 1fr, $justify-content: center);
+    }
+    // height: 700px;
+    transition: grid-template-columns 0.3s;
+  }
+
+  &-btn {
+    // absolute-outside right bg-danger
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include bg-(danger);
+    @include t-(light);
+    @include from(1040px) {
+      top: 0;
+      left: 100%;
+    }
+  }
+  &-pay {
+    width: 100%;
+    @include bg-(success);
+    color: Color(light);
+  }
+}
+
+//-----------------------------------------------------*/
+.day-4 {
+  @include bg-(info);
+
+  &-col {
+    // display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    @include grid-crjaj(repeat(4, 1fr), auto, $gap: 0px);
+    width: 100%;
+
+    & > span {
+      @include p-(3px);
+
+      @include from($sm) {
+        font-size: $font-size * 1.5;
+        @include p-(10px);
+      }
+      // border-radius: 4px;
+    }
+  }
+
+  &-container {
+    // display: flex;
+    // flex-direction: column;
+    box-shadow: 0px 8px 10px -7px $shadow_color;
+
+    @include grid-crjaj(1fr, auto, $gap: 0px);
+
+    @include from($md) {
+      grid-template-columns: repeat(2, 1fr);
+      // @include flex-dcia(row, $align-items: center, $justify-content: center);
+    }
+  }
+
+  &-result {
+    grid-column: 1 / 1;
+    @include from($md) {
+      grid-column: 1 / column-line-end;
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+.day-6 {
+  display: flex;
+  flex-wrap: wrap;
+  &-sidebar {
+    margin-top: -70px;
+    flex: 1 1 100%;
+    @include from {
+      flex: 1 1 30%;
+    }
+  }
+  &-content {
+    flex: 1 1 100%;
+    @include from {
+      margin-top: $padding * 3;
+      flex: 1 1 70%;
+    }
+  }
+  .tab {
+    border-bottom: 1px solid $gray-light;
+    &-active {
+      border-bottom: 1px solid $info;
+    }
+  }
+  &-list > * {
+    @include my-(8px);
+  }
+  &-bg {
+    background: rgb(255, 252, 155);
+    background: linear-gradient(
+      161deg,
+      rgba(255, 252, 155, 1) 0%,
+      rgba(255, 193, 7, 1) 100%
+    );
+  }
+  &-hero {
+    &:hover::before {
+      opacity: 0.7;
+    }
+    &::before {
+      content: "+";
+      color: $black;
+      background-color: $white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 2rem;
+      // padding: 1px 10px;
+      font-weight: bold;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap");
+.day-7 {
+  background: rgba(12, 171, 221, 1);
+  background: radial-gradient(
+    circle,
+    rgb(38, 194, 241) 0%,
+    rgb(10, 127, 230) 89%,
+    rgba(12, 171, 221, 1) 100%
+  );
+  border: 3px solid #3eaef8;
+  font-family: "Kalam", cursive;
+
+  &-bg {
+    background: rgb(12, 107, 221);
+    background: linear-gradient(
+      324deg,
+      rgba(12, 107, 221, 1) 0%,
+      hsl(226, 97%, 42%) 100%
+    );
+    border: 3px solid rgb(34, 10, 193);
+  }
+  &-1 {
+    background: rgb(45, 16, 249);
+    background: linear-gradient(
+      0deg,
+      rgba(45, 16, 249, 1) 0%,
+      rgba(198, 157, 255, 1) 100%
+    );
+    border: 3px solid rgb(34, 10, 193);
+    width: 90%;
+    padding: $padding;
+    @include from($sm) {
+      padding: $padding $padding * 2;
+      width: 70%;
+    }
+  }
+  &-2 {
+    background: rgb(16, 249, 214);
+    background: linear-gradient(
+      170deg,
+      rgb(36, 255, 222) 0%,
+      rgb(4, 169, 219) 89%
+    );
+    color: rgb(31, 82, 249);
+    border: 3px solid rgb(34, 10, 193);
+    width: 90%;
+    padding: $padding;
+    @include from($sm) {
+      padding: $padding * 2;
+      width: 70%;
+    }
+  }
+  &-btn {
+    border: 3px solid rgba(249, 16, 16, 1);
+    background: rgb(249, 16, 16);
+    background: linear-gradient(
+      0deg,
+      rgba(249, 16, 16, 1) 73%,
+      rgba(255, 119, 3, 1) 100%
+    );
+    width: 170px;
+  }
+  &-i {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(31, 82, 249);
+    border: 3px solid rgb(4, 169, 219);
+  }
+}
+
+//-----------------------------------------------------*/
+.day-8 {
+  background: rgb(211, 174, 255);
+  background: radial-gradient(
+    circle,
+    rgba(211, 174, 255, 1) 0%,
+    rgba(175, 114, 255, 0) 90%
+  );
+  @include from() {
+    background: radial-gradient(
+      circle,
+      rgba(211, 174, 255, 1) 0%,
+      rgba(175, 114, 255, 0) 75%
+    );
+  }
+  &-btn {
+    clip-path: polygon(
+      0% 0%,
+      calc(var(--width) - 10px) 0%,
+      100% 100%,
+      10px 100%
+    );
+  }
+}
+
+//-----------------------------------------------------*/
+
+.day-9 {
+  &-progress {
+    &-container {
+      background: Color(gray-light);
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 40px 20px;
+      height: 4px;
+      width: 90%;
+    }
+    // background: Color(warning);
+    @include bg-(warning);
+    border-radius: 5px;
+    height: 100%;
+    /* change this to show progress */
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  &-duration {
+    &-wrapper {
+      position: relative;
+      top: -25px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-content {
+    padding: $padding;
+    @include from() {
+      padding: $padding * 3;
+    }
+  }
+  &-li {
+    border-bottom: 1px solid $gray-light;
+    padding: 5px 0;
+    cursor: pointer;
+
+    &-active {
+      padding: 5px 0;
+      border-bottom: 2px solid Color(warning);
+      font-weight: bold;
+    }
+  }
+  &-img {
+    z-index: 0;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    width: 70%;
+    // @include from($sm) {
+    //   width: 70%;
+    // }
+    // @include from($md) {
+    //   width: 30%;
+    // }
+  }
+  &-play {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    position: relative;
+    width: 70%;
+    // @include from($sm) {
+    //   width: 40%;
+    // }
+    // @include from($md) {
+    //   width: 30%;
+    // }
+
+    & .fas {
+      // padding: 5px;
+      border-radius: 50%;
+      // margin: 0 5px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      // transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    & .fa-backward {
+      top: 50%;
+      left: 25%;
+      transition: transform 0.2s ease-in-out;
+      transform: translate(-50%, -50%);
+      &:hover {
+        transform: translate(-80%, -50%);
+      }
+    }
+    & .fa-play-circle,
+    .fa-pause-circle {
+      top: 50%;
+      padding: 5px;
+      left: 50%;
+      transition: transform 0.2s ease-in-out;
+      transform: translate(-50%, -50%) scale(1);
+      &:hover {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+    & .fa-forward {
+      top: 50%;
+      left: 75%;
+      transition: transform 0.2s ease-in-out;
+      transform: translate(-50%, -50%);
+      &:hover {
+        transform: translate(-20%, -50%);
+      }
+    }
+  }
+}
+//-----------------------------------------------------*/
+.day-10 {
+  @include flex-dcia(column, center, center);
+  & > * {
+    clip-path: polygon(100% 75%, 50% 100%, 0 75%, 0 0, 50% 25%, 100% 0);
+    transition: transform 0.3s ease-in-out, clip-path 0.3s ease-in-out;
+    @include to {
+      @include flex-dcia(row, center, center);
+      margin-top: -11px;
+      padding-top: 7px;
+      @include square(40px);
+    }
+
+    &:hover {
+      // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      // clip-path: polygon(50% 0, 100% 50%, 50% 100%, 50% 100%, 0 50%, 50% 0);
+      clip-path: polygon(100% 50%, 75% 100%, 25% 100%, 0% 50%, 25% 0%, 75% 0%);
+
+      transform: scale(1.2);
+      z-index: 10;
+    }
+  }
+
+  @include from {
+    @include flex-dcia(row, center);
+    & > * {
+      clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+      margin-left: -14px;
+      padding: $padding;
+      transition: transform 0.3s ease-in-out, clip-path 0.3s ease-in-out;
+      &:hover {
+        // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        // clip-path: polygon(50% 0, 100% 50%, 50% 100%, 50% 100%, 0 50%, 50% 0);
+        clip-path: polygon(
+          75% 0%,
+          100% 50%,
+          75% 100%,
+          25% 100%,
+          0% 50%,
+          25% 0%
+        );
+
+        transform: scale(1.2);
+        z-index: 10;
+      }
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+.day-11 {
+  // padding: 5px 7px;
+  height: 50px;
+  width: 0px;
+  transition: width 0.3s ease-in-out;
+
+  // transform-origin: end;
+  &-btn {
+    &:hover ~ .day-11 {
+      width: 100%;
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+.day-12 {
+  @include from {
+    @include grid-crjaj(
+      $columns: 1fr 1fr,
+      $justify-content: center,
+      $align-items: center
+    );
+  }
+
+  &-galery {
+    width: 30px;
+    height: 3px;
+    margin: 20px 5px;
+    display: inline-block;
+  }
+  &-btn-line {
+    border: 2px solid $danger;
+  }
+  &-color {
+    & .round-circle {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+    }
+
+    & .active {
+      border: 3px solid $primary;
+    }
+  }
+}
+//-----------------------------------------------------*/
+.day-13 {
+  @include from {
+    @include grid-crjaj(
+      $columns: 2fr 3fr,
+      $justify-content: center,
+      $align-items: center
+    );
+  }
+  &-comment {
+    padding: 5px 8px;
+    margin-left: $padding;
+    margin-bottom: $margin;
+    border-radius: $border-radius * 4 $border-radius * 4 $border-radius * 4 0;
+    background-color: $white;
+    box-shadow: 0 5px 10px -3px $shadow_color;
+    width: 85%;
+
+    &-you {
+      @extend .day-13-comment;
+      border-radius: $border-radius * 4 $border-radius * 4 0 $border-radius * 4;
+      background-color: $white;
+      margin-right: $padding;
+      margin-left: auto;
+    }
+  }
+  &-profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    @include from {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &-badge {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+//-----------------------------------------------------*/
+.day-14 {
+  &-circle {
+    background: Var(white);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 0%,
+      rgb(175, 220, 223) 100%
+    );
+    width: 150px;
+    height: 150px;
+    @include from($sm) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  &-svg {
+    top: -1px;
+    width: 80%;
+    @include from($sm) {
+      width: 50%;
+    }
+    @include from($lg) {
+      width: 30%;
+    }
+  }
+  &-time {
+    background-color: #5ea2a6;
+    background: linear-gradient(
+      0deg,
+      rgba(94, 162, 166, 1) 0%,
+      rgba(158, 234, 236, 1) 100%
+    );
+  }
+  &-btn {
+    border-bottom: 2px solid #5ea2a6;
+  }
+  &-range {
+    height: 4px;
+    background-color: $gray-light;
+  }
+  &-ball {
+    background-color: #5ea2a6;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid $white;
+    cursor: pointer;
+  }
+  &-progress {
+    background-color: #5ea2a6;
+  }
+  &-options {
+    color: rgba(158, 234, 236, 1);
+    top: 90%;
+    transform: translateY(-100%);
+  }
+  &-pause {
+    color: rgba(158, 234, 236, 1);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include from {
+      top: 40px;
+    }
+  }
+}
+.t-cian {
+  color: #5ea2a6;
+}
+
+//-----------------------------------------------------*/
+.day-17 {
+  &-btn {
+    top: 0;
+    left: $padding;
+    @include from($sm) {
+      left: $padding * 3;
+    }
+    transition: left 0.5s ease;
+    transform: translateY(-50%);
+  }
+  &-content {
+    padding: $padding;
+    @include from($sm) {
+      padding: $padding * 3;
+    }
+  }
+  &-hero > *:not(img) {
+    @include mx-($margin);
+    @include from($sm) {
+      @include mx-($margin * 3);
+    }
+  }
+  &-dots {
+    border: 2px dashed rgb(170, 170, 170);
+    @include to(300) {
+      display: none;
+    }
+  }
+}
+//-----------------------------------------------------*/
+@mixin lines {
+  border-top: 1px solid Var(gray);
+  border-bottom: 1px solid Var(gray);
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.day-18 {
+  &-chart {
+    position: relative;
+    width: 100%;
+    @include lines;
+    &::before,
+    &::after {
+      content: "";
+      @include lines;
+      position: absolute;
+      display: block;
+      left: 0;
+      height: 25%;
+      width: 100%;
+    }
+    &::before {
+      top: 50%;
+    }
+    &::after {
+      top: 25%;
+      transform: translateY(1px);
+    }
+  }
+  &-top {
+    border-radius: $border-radius * 3 $border-radius * 3 0px 0px;
+    // width: 300px;
+    // @include from($sm) {
+    //   width: 450px;
+    // }
+  }
+  &-bottom {
+    border-radius: 0px 0px $border-radius * 3 $border-radius * 3;
+    // width: 300px;
+    // @include from($sm) {
+    //   width: 450px;
+    // }
+  }
+  &-arrows {
+    // margin-top: -18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    & > i {
+      transform: scale(1);
+      transition: scale 0.3s;
+    }
+    & > i:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &-line {
+    position: absolute;
+    width: 5%;
+    @include bg-(info);
+    bottom: 0;
+  }
+}
+.line {
+  &-1 {
+    left: 10px;
+  }
+  &-2 {
+    left: 30px;
+  }
+}
+
+//-----------------------------------------------------*/
+.day-19 {
+  &-hero {
+    background: rgb(242, 33, 102);
+    background: linear-gradient(
+      291deg,
+      rgba(242, 33, 102, 1) 0%,
+      rgba(109, 53, 220, 1) 100%
+    );
+    & > h1 {
+      line-height: initial;
+    }
+    @include p-($padding);
+
+    @include from($sm) {
+      @include px-($padding * 3);
+      @include py-($padding);
+    }
+  }
+  &-body {
+    @include px-($padding);
+    padding-top: $padding;
+    padding-bottom: $padding * 3;
+
+    @include from($sm) {
+      @include px-($padding * 3);
+      padding-top: $padding * 2;
+      padding-bottom: $padding * 3;
+    }
+  }
+  &-profile {
+    width: 100%;
+    margin-bottom: 2rem;
+    @include flex-dcia(column, center, center);
+    @include to($md) {
+      font-size: 1.5rem;
+    }
+    @include from($md) {
+      margin-bottom: 0rem;
+      @include flex-12(5);
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+.logotipo {
+  padding: 10px;
+  border: 5px solid Var(gray-dark);
+  text-transform: uppercase;
+  & .subtitulo {
+    color: Var(white);
+    background-color: Var(gray-dark);
+    text-align: center;
+    padding: 12px 20px;
+    transition: 0.5s ease background-color;
+    font-size: 36px;
+    @include to() {
+      font-size: 20px;
+    }
+  }
+  &:hover .subtitulo {
+    background-color: Var(info);
+  }
+}
+.texto-animado {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  & .segunda-linea {
+    position: absolute;
+    top: 100px;
+    @include to() {
+      top: 50px;
+    }
+  }
+}
+.texto-animado > div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: 0.3s ease all;
+  &.animacion {
+    transform: translateY(-100px);
+    @include to() {
+      transform: translateY(-50px);
+    }
+  }
+}
+
+.texto-animado > div span {
+  font-size: 100px;
+  font-weight: normal;
+  line-height: 100px;
+  @include to() {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+//-----------------------------------------------------*/
+.day-20 {
+  --purple: #272a5d;
+  --purple-light: #7969fd;
+  --purple-dark: #1b1e53;
+  --success: #7969fd;
+  --danger: rgb(206, 206, 206);
+  @include grid-crjaj(1fr);
+  @include from() {
+    @include grid-crjaj(1fr 1fr, $gap: $padding * 4);
+  }
+  &-body {
+    padding: $padding;
+    margin-top: $margin;
+    margin-bottom: $margin;
+    @include from() {
+      padding: $padding $padding * 2;
+      margin-top: $margin;
+      margin-bottom: $margin;
+    }
+  }
+  &-map {
+    height: 600px;
+    @include from() {
+      flex-basis: 100%;
+      flex: 1;
+    }
+  }
+  &-list {
+    margin: $margin * 2 0px;
+    @include from() {
+      padding: 0px $padding * 2;
+    }
+  }
+  & input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px Var(purple-light) solid;
+  }
+}
+//-----------------------------------------------------*/
+.day-21 {
+  --blue: #3b3f8e;
+  --blue-dark: #282a69;
+  --blue-light: #5b61d3;
+  border: 1px solid Var(gray);
+  flex-direction: column;
+  @include from($sm) {
+    flex-direction: row;
+  }
+
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include flex-12(auto);
+    background: rgb(72, 77, 161);
+    background: linear-gradient(
+      291deg,
+      rgba(72, 77, 161, 1) 0%,
+      rgba(40, 42, 105, 1) 100%
+    );
+
+    @include from($sm) {
+      $key: 225px;
+      -ms-flex: 0 0 $key;
+      flex: 0 0 $key;
+      max-width: $key;
+    }
+
+    & > * {
+      width: 100%;
+    }
+  }
+  &-main {
+    @include px-($padding);
+    @include py-($padding);
+    @include from($md) {
+      @include px-($padding * 3);
+    }
+  }
+  &-active {
+    position: relative;
+    &::before {
+      content: "";
+      width: 7px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: lightseagreen;
+      box-shadow: 5px 0px 17px -1px rgb(52 211 203 / 99%);
+    }
+    &::after {
+      content: "";
+      width: 10px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      clip-path: polygon(100% 0, 0% 50%, 100% 100%);
+      background-color: #ffffff;
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+.day-23 {
+  @include grid-crjaj(1fr, $gap: $padding);
+  @include from() {
+    @include grid-crjaj(1fr 1fr 1fr, $gap: $padding);
+  }
+  &-img {
+    padding: $padding $padding $padding * 2;
+    @include from() {
+      padding: 0 $padding * 3 $padding * 2;
+    }
+  }
+}
+//-----------------------------------------------------*/
+.day-24 {
+  --purple: #303064;
+  background: rgb(102, 68, 170);
+  background: radial-gradient(
+    circle,
+    rgba(102, 68, 170, 1) 0%,
+    rgba(31, 22, 65, 1) 100%
+  );
+  &-purple {
+    background: rgb(102, 68, 170);
+    background: linear-gradient(
+      0deg,
+      rgba(102, 68, 170, 0.4) 50%,
+      rgba(34, 26, 73, 0.3) 100%
+    );
+  }
+  &-body {
+    padding: $padding * 2 $padding;
+    @include from($sm) {
+      padding: $padding * 3 $padding * 2;
+    }
+  }
+}
+
+//-------------------1 line----------------------------------*/
+.grid-navbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($side-menu, 1fr));
+
+  // grid-template-columns: repeat(auto-fill, 186px);
+
+  // grid-template-columns: 1fr;
+  // @media (min-width: $md) {
+  //   grid-template-columns: minmax($side-menu, 25%) 1fr;
+  // }
+}
+
+.grid-ram {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+//-----------------------------------------------------*/
+.day-25 {
+  $name: &;
+  &-header {
+    // flex ai-center h-200 px-2 t-light
+    @include flex-dcia(column, space-between, center, $flex-wrap: nowrap);
+    @include px-($padding);
+    padding-top: $padding * 3;
+    padding-bottom: $padding;
+    // @include py-($padding * 3, $padding);
+    @include to() {
+      text-align: center;
+      @include gap-col($padding);
+    }
+    @include from($sm) {
+      @include px-($padding * 3);
+    }
+    @include from() {
+      @include flex-dcia(row, space-between, center);
+      height: 200px;
+    }
+    @include t-(light);
+  }
+
+  &-body {
+    @include grid-crjaj(1fr, $gap: $padding);
+    @include px-($padding);
+
+    @include my-($margin, $margin * 9);
+
+    @include from($sm) {
+      @include px-($padding * 3);
+    }
+    @include from() {
+      @include grid-crjaj(1fr 1fr 1fr, $gap: $padding * 2);
+    }
+  }
+
+  &-flayer {
+    @include img-container();
+    @include flex-dcia(row);
+    position: relative;
+    &:hover > #{$name}-label {
+      opacity: 1;
+    }
+  }
+
+  &-label {
+    border-radius: $border-radius;
+    @include crop();
+    @include px-($padding);
+    padding-top: $padding * 2;
+    padding-bottom: $padding;
+    // @include py-($padding * 2, $padding);
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    @include flex-dcia(row, space-between, center);
+    // display: flex;
+    align-self: flex-end;
+    width: 100%;
+    // padding: $padding;
+    @include t-(light);
+
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  &-input {
+    padding: 0 0 6px 0;
+    @include t-(light);
+    &::placeholder {
+      color: white;
+    }
+  }
+}
+// grid col-3 gap-4 py px-2 mb-9
+// self-flex-end  flex w-100% p t-light
+
+//-----------------------------------------------------*/
+.day-26 {
+  &-1 {
+    background: rgb(80, 54, 236);
+    background: linear-gradient(
+      0deg,
+      rgba(80, 54, 236, 1) 0%,
+      rgba(25, 91, 222, 1) 100%
+    );
+    text-align: center;
+    @include from() {
+      text-align: left;
+    }
+  }
+  &-2 {
+    // px-4 py-2
+    background: rgb(9, 196, 194);
+    background: linear-gradient(
+      0deg,
+      rgba(9, 196, 194, 1) 0%,
+      rgba(34, 130, 255, 1) 100%
+    );
+    //  @include px-();
+    @include p-($padding);
+    @include from() {
+      // @include px-();
+      @include p-($padding * 2);
+    }
+  }
+  &-img {
+    @include from() {
+      position: absolute;
+      transform: translate(-50%, -50%) scale(1.7) rotate(-20deg);
+    }
+    @include my-($margin * 2);
+    transform: rotate(-20deg);
+    top: 50%;
+    left: 50%;
+  }
+}
+
+//-----------------------------------------------------*/
+.asymetric {
+  --orange: #fb6a04;
+  --orange-dark: #fb6a04;
+  z-index: 1;
+  position: relative;
+  &::after {
+    content: "";
+    @include from() {
+      @include bg-(gray);
+    }
+    position: absolute;
+    display: block;
+    left: 48%;
+    top: 0;
+    bottom: 0;
+    width: 52%;
+    z-index: -1;
+  }
+  &-btn {
+    position: relative;
+    &:hover::after {
+      width: 100%;
+      height: 50%;
+      top: 25%;
+      left: 0%;
+    }
+    &::after {
+      transition: all 0.2s ease-out;
+      content: "";
+      position: absolute;
+      background-color: orange;
+      background-color: var(--orange-dark);
+      width: 80%;
+      height: 50%;
+      top: 50%;
+      left: -1%;
+      z-index: -1;
+    }
+  }
+}
+
+//-----------------------------------------------------*/
+.day-27 {
+  &-bg {
+    background: rgb(205, 39, 110);
+    background: linear-gradient(
+      0deg,
+      rgba(205, 39, 110, 1) 0%,
+      rgba(236, 78, 54, 1) 100%
+    );
+  }
+  &-menu {
+    top: 110%;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 1em solid transparent;
+      border-right: 1em solid transparent;
+      border-bottom: 1em solid Color(light);
+    }
+  }
+}
+//-----------------------------------------------------*/
+.day-28 {
+  &-back {
+    top: 20px;
+    left: -20px;
+    right: -80px;
+    // bottom: 50%;
+
+    z-index: -1;
+    background-color: rgb(28, 28, 48);
+
+    @include t-(light);
+    @include p-($padding);
+
+    @include flex-dcia(row, space-between);
+
+    @include from() {
+      position: absolute;
+      @include gap-col($margin);
+      padding: $padding $padding $padding * 3 $padding;
+      @include flex-dcia(column, space-between, flex-end);
+    }
+  }
+  &-plane {
+    @include from() {
+      @include bg-(info-light);
+      @include box-em(2em);
+      border-radius: 50%;
+      top: 80%;
+      right: 1%;
+      position: absolute;
+    }
+  }
+}
+
+//  flex-col w-500 ai-flex-end p-2  pb-4 t-3
+// box-2 round-9 bg-info t-3 top-80%
+
+//-----------------------------------------------------*/
+.nav-list {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    @include box-em(3em);
+    background: red;
+    border-radius: 50%;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+  }
+}
+
+//-----------------------------------------------------*/
+.day-30 {
+  background: rgb(23, 44, 116);
+  background: radial-gradient(
+    circle,
+    rgba(23, 44, 116, 1) 0%,
+    rgba(30, 18, 68, 1) 100%
+  );
+  &-btn {
+    @include t-(light);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: rgb(166, 24, 205);
+    background: linear-gradient(
+      rgba(166, 24, 205, 1) 0%,
+      rgba(222, 56, 114, 1) 100%
+    );
+    transition: transform 0.3s ease-out;
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+  &-bg {
+    background: rgb(166, 24, 205);
+    background: linear-gradient(
+      287deg,
+      rgba(166, 24, 205, 1) 0%,
+      rgba(222, 56, 114, 1) 100%
+    );
+  }
+  &-purple {
+    background: rgb(166, 24, 205);
+    background: linear-gradient(
+      287deg,
+      rgba(166, 24, 205, 1) 0%,
+      rgba(222, 56, 114, 1) 100%
+    );
+  }
+  &-purple {
+    background: rgb(166, 24, 205);
+    background: linear-gradient(
+      287deg,
+      rgba(166, 24, 205, 1) 0%,
+      rgba(222, 56, 114, 1) 100%
+    );
+  }
+  &-blue {
+    background: rgb(238, 174, 202);
+    background: linear-gradient(
+      90deg,
+      rgba(238, 174, 202, 1) 0%,
+      rgba(148, 187, 233, 1) 100%
+    );
+  }
+  &-orange {
+    background: rgb(131, 58, 180);
+    background: linear-gradient(
+      0deg,
+      rgba(131, 58, 180, 1) 0%,
+      rgba(252, 176, 69, 1) 100%
+    );
+  }
+
+  &-card {
+    margin-bottom: 50px;
+    position: relative;
+    box-shadow: 0px 7px 10px $shadow_color;
+    // @include crop();
+    @include bg-(white);
+    @include t-(black);
+    margin-bottom: $margin * 4;
+    border: $border-radius * 2;
+    padding-top: $padding * 10;
+    padding-bottom: $padding * 4;
+    @include from($md) {
+      margin-bottom: 0;
+    }
+  }
+  &-main {
+    border-radius: $border-radius * 2;
+    transform: scale(1);
+    @include from() {
+      transform: scale(1.1);
+    }
+  }
+  &-left {
+    z-index: 0;
+    border-radius: $border-radius * 2;
+    @include from() {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &-right {
+    z-index: 0;
+    border-radius: $border-radius * 2;
+    @include from() {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  // py-4 pl-4
+
+  &-info {
+    &-left,
+    &-right {
+      @include py-($padding);
+      @include px-($padding);
+      @include from($sm) {
+        @include px-($padding * 2);
+      }
+      @include from() {
+        @include py-($padding * 4);
+      }
+    }
+    &-left {
+      @include from() {
+        padding-left: $padding * 4;
+      }
+    }
+    &-right {
+      align-items: flex-end;
+      height: 100px;
+      margin-bottom: 40px;
+      @include from() {
+        margin-bottom: 0;
+        height: auto;
+        padding-right: $padding * 4;
+      }
+    }
+  }
+
+  &-cards {
+    margin-top: 0;
+    margin-top: -30px;
+    @include px-($padding);
+    @include from($sm) {
+      @include px-($padding * 2);
+    }
+  }
+  &-img {
+    z-index: -1;
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    top: 0;
+    left: 0;
+    @include from() {
+    }
+  }
+}
+.left-right {
+  left: 0;
+
+  @include from() {
+    left: auto;
+    right: 0;
+  }
+}
+//-----------------------------------------------------*/
+//
+
+.day-32 {
+  &-img {
+    clip-path: polygon(100% 0, 100% 83%, 63% 100%, 0 72%, 0 0);
+  }
+  // absolute right-90% top-10% bg-success w-fit-content btn round-top-1 round-right-1
+  &-label {
+    position: absolute;
+    left: auto;
+    top: 200 - 68px;
+    right: 0;
+    @include from($sm) {
+      right: auto;
+      left: -20px;
+      top: 50px;
+    }
+  }
+  &-triangle {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 20px 20px 0;
+      border-color: transparent Color(success-dark) transparent transparent;
+    }
+  }
+  &-offer {
+    text-align: center;
+    @include from() {
+      position: absolute;
+      bottom: 0;
+
+      right: -30px;
+      transform-origin: right bottom;
+      transform: scale(2);
+    }
+  }
+}
+//-------------------Comment----------------------------------//
+.day-35 {
+  &-bg {
+    background: rgb(36, 30, 46);
+    background: linear-gradient(
+      0deg,
+      rgba(36, 30, 46, 1) 0%,
+      rgba(78, 73, 102, 1) 100%
+    );
+  }
+}
+
+//-----------------------------------------------------//
+.day-36 {
+  &-bg {
+    --blue-light: rgba(77, 78, 195, 1);
+    --blue: rgba(53, 45, 124, 1);
+    --blue-dark: rgb(23, 25, 90);
+    background: rgb(42, 215, 227);
+    background: linear-gradient(
+      238deg,
+      rgba(42, 215, 227, 1) 0%,
+      rgba(53, 45, 124, 1) 52%,
+      rgba(229, 69, 69, 1) 100%
+    );
+  }
+  &-card {
+    background: rgb(77, 78, 195);
+    background: linear-gradient(
+      180deg,
+      rgba(77, 78, 195, 1) 0%,
+      rgba(53, 45, 124, 1) 44%
+    );
+  }
+  &-col {
+    // t-center flex-col
+    width: 100%;
+    @include bg-(blue);
+    padding: $padding;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    @include t-(light);
+    @include from() {
+      @include flex-12(6, $gap: $padding);
+      margin-top: 0;
+    }
+  }
+}
+//-----------------------------------------------------//
+.day-40 {
+  @include grid-crjaj(1fr, 1fr 1fr, $gap: $padding * 2);
+  @extend .content;
+  @include from($md) {
+    @include grid-crjaj(1fr 1fr, 1fr, $gap: $padding * 2);
+  }
+
+  // -------------
+  &-bg {
+    background: rgb(255, 194, 225);
+    background: linear-gradient(
+      333deg,
+      rgba(255, 194, 225, 1) 0%,
+      rgba(255, 232, 240, 1) 100%
+    );
+  }
+  // -------------
+  &-col {
+    // background: #fff;
+     @include bg-(white);
+    box-shadow: 0px 10px 15px -7px rgba(94, 24, 36, 0.26);
+  }
+  // -------------
+  &-menu {
+    position: relative;
+    @include flex-dcia(row, center);
+
+    @include p-(Div($padding, 2));
+  }
+  // -------------
+  &-arrow {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  // -------------
+  &-stars {
+    @include flex-dcia(row, space-between);
+    @include t-(orange);
+    width: 200px;
+  }
+  // -------------
+  &-body {
+    @include p-($padding);
+    @include py-($padding * 2);
+    @include gap-col($padding);
+    @include flex-dcia(column, center, center);
+  }
+  // -------------
+  &-pic {
+    @include mx-($margin * 2);
+    height: 300px;
+    @include bg-(pink-dark);
+
+    @include flex-dcia(column, center, center);
+  }
+  // -----
+  &-like {
+    // box-2 t-3 bg-pink-dark t-light round-circle absolute right-10% bottom-10%
+    // @include box-em(3em);
+    // font-size: 1.2em;
+    @include box-px(50px, 20px, 50px);
+    text-align: center;
+    @include bg-(pink-dark);
+    @include t-(light);
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+}
+//-----------------------------------------------------//
+.card-hover {
+  &-body {
+    transition: transform 0.3s 0.3s ease-in-out;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    transform: translateY(77%);
+    transform-origin: top;
+    will-change: transform;
+  }
+  &:hover > &-body {
+    transform: translateY(0);
+  }
+  &-line {
+    transform: scaleX(0);
+    width: 80%;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left;
+    will-change: transform;
+  }
+  &:hover &-line {
+    transform: scaleX(1);
+  }
+  & > img {
+    transform: scale(1);
+    transition: transform 0.3s 0.3s ease-in-out;
+    will-change: transform;
+  }
+  &:hover > img {
+    transform: scale(1.2);
+  }
+}

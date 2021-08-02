@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="src/scss/main.scss">
+</head>
+
+<body class="_screen_size">
+
+	<!-- 
+	<section id="app">
+
+	</section> -->
+
+
+	<!--******************************************-->
+
+	<section class="bg-secondary" id="animated-menu">
+		<div class="flex-col sm:flex bg-white  round-9  t-dark relative b-10 b-solid b-white nowrap" id="nav-list">
+			<i data-bg="green" class="box-3 sm:mr z-normal round-circle fas fa-home active"></i>
+			<i data-bg="brown" class="box-3 sm:mr z-normal round-circle fas fa-user"></i>
+			<i data-bg="orange" class="box-3 sm:mr z-normal round-circle fas fa-comment"></i>
+			<i data-bg="#b300b3" class="box-3 sm:mr z-normal round-circle fas fa-question"></i>
+			<i data-bg="#dc3545" class="box-3  z-normal round-circle fas fa-cog "></i>
+			<span class="box-3 round-circle absolute" id="back"></span>
+		</div>
+	</section>
+
+	<!-----------------------gsap----------------------->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/CSSRulePlugin.min.js"></script> -->
+
+
+	<!-----------------------menu----------------------->
+	<script>
+		const query = (node) => document.querySelector(node);
+
+		const animatedMenu = query("#animated-menu");
+		const navList = query("#nav-list");
+		const back = query("#back");
+		let backPosition = {}
+
+		let tl = gsap.timeline({})
+
+
+		navList.addEventListener("click", (e) => {
+			const bg = e.target.dataset.bg
+			if (bg) {
+				let x = e.target.offsetLeft - back.offsetLeft
+				let y = e.target.offsetTop - back.offsetLeft
+
+				tl
+					.to(back, { duration: 0.2, scaleY: 0.5, scaleX: 1.2, ease: "power2.inOut", x: x, y: y, background: bg, },)
+					.to(back, { duration: .2, scaleY: 1, scaleX: 1, ease: "power2.inOut", },)
+
+
+				for (let index = 0; index < navList.children.length - 1; index++) {
+					navList.children[index].classList.remove("t-light", "active");
+				}
+
+				e.target.classList.add("t-light", "active")
+
+				animatedMenu.className = ""
+				animatedMenu.style.background = bg
+				back.style.background = bg
+			}
+		})
+
+
+
+
+		function reportWindowSize() {
+			const active = navList.querySelector(".active")
+
+			let x = active.offsetLeft - back.offsetLeft
+			let y = active.offsetTop - back.offsetLeft
+			tl
+				.to(back, { duration: 0, scaleY: 1, scaleX: 1, ease: "power2.inOut", x: x, y: y },)
+		}
+		reportWindowSize()
+		// const mql = window.matchMedia('screen and (max-width: 576px)');
+		// window.onresize = reportWindowSize;
+
+
+		window.addEventListener('resize', () => {
+			reportWindowSize()
+			// const active = navList.querySelector(".active")
+
+			// let x = active.offsetLeft - back.offsetLeft
+			// let y = active.offsetTop - back.offsetLeft
+			// tl
+			// 	.to(back, { duration: 0, scaleY: 1, scaleX: 1, ease: "power2.inOut", x: x, y: y },)
+		});
+
+
+
+	</script>
+
+	<!--******************************************-->
+	<section class="bg-orange   crop">
+
+		<div class="container    day-1  relative ">
+
+
+			<div class="bg-danger-dark full   day-1-bg-1  absolute"></div>
+			<div class="bg-danger-light  full   day-1-bg-2 absolute"></div>
+
+			<!--  -->
+			<div class="day-1-col-1  h-100% flex jc-center ai-center ">
+				<img loading="lazy" src="../img/jupiter.svg" class="w-50%">
+				<h3 class="t-center t-bold display-3 t-light flex-12">Sign in</h3>
+			</div>
+
+			<!--  -->
+			<div class="day-1-col-2 t-light h-100% flex jc-center ai-center">
+
+				<div class="input-container relative flex-12 ">
+					<input class="" type="text" id="name" require placeholder="name">
+					<label for="name">Name</label>
+				</div>
+
+				<div class="input-container relative flex-12 my-2">
+					<input class="" type="email" id="email" require placeholder="pass">
+					<label for="email">Email</label>
+				</div>
+
+				<button type="submit" class="day-1-btn t-3 bold ">Sign in</button>
+				<button type="submit" class="day-1-btn t-3 bold ">Sign up</button>
+
+				<p class="t-center flex-12 mt">Forgot Password?</p>
+			</div>
+		</div>
+
+	</section>
+
+	<!--==========================================-->
+	<section class="day-2">
+		<img loading="lazy"
+			src="https://images.pexels.com/photos/6243806/pexels-photo-6243806.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+			class="blur-5 ">
+
+		<!-- ------------------- -->
+		<div class=" day-2-content container ">
+			<div class="day-2-1 img-container    full ">
+				<img loading="lazy"
+					src="https://images.pexels.com/photos/6243806/pexels-photo-6243806.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+					class=" ">
+				<div class="day-2-product p-3 ">
+					<h1 class="t-bold">Something</h1>
+					<h5 class="t-bold ">499.80 USD <span class="t-3">/ 1 night</span></h5>
+					<hr class="">
+					<p class="">Some description of this</p>
+					<p class="">2 lorems, 3 ipsums</p>
+				</div>
+			</div>
+			<!-- ------------------- -->
+			<div class="bg-white    round-bottom-2 p-y p-3 relative  gap-col">
+				<button class="day-2-btn  ">x</button>
+				<h3 class="t-bold "> Receipt summary </h3>
+				<table class="t-md " style="width:100%">
+					<tr class="">
+						<td>Something</td>
+						<td class="t-right">499.80 USD</td>
+					</tr>
+					<tr>
+						<td>Discount</td>
+						<td class="t-right">0.00 USD</td>
+					</tr>
+					<tr>
+						<td>Subtotal</td>
+						<td class="t-right">499.80 USD</td>
+					</tr>
+					<tr>
+						<td>Tax</td>
+						<td class="t-right">9.90 USD</td>
+					</tr>
+					<tr class="t-bold">
+						<td class="">Total</td>
+						<td class="t-right"><span class="t-lg">510.00</span> <span> USD</span></td>
+					</tr>
+
+				</table>
+
+				<h3 class="mt-3 t-bold">Payment information</h3>
+				<label for="name2">Name on Credit Card</label>
+				<input class="w-100%" type="text" name="name" id="name2" placeholder="name">
+
+				<label for="number">Credit Card number</label>
+				<input class="w-100%" type="number" name="name" id="number" placeholder="name">
+
+				<label for="extend">Expends on</label>
+				<div class="input-group">
+					<select class="input-control" name="expire" id="expire">
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="2">Etc..</option>
+					</select>
+					<select class="input-control" name="expire" id="expire">
+						<option value="1">2021</option>
+						<option value="2">2022</option>
+						<option value="2">Etc..</option>
+					</select>
+				</div>
+
+				<label for="CVC" class="d-block">CVC</label>
+				<input type="text" class="w-50%">
+				<small class="t-md">What is CVC?</small>
+
+				<button class="day-2-pay btn-xl">Pay</button>
+				<p class="t-center mt t-md">your credit card information is encrypted</p>
+
+			</div>
+
+
+		</div>
+	</section>
+	<!--==========================================-->
+	<section class="day-4 ">
+		<div class="day-4-container content   ">
+			<div class="day-4-result   ">
+				<div class="bg-white   t-right t-gray-dark p ">
+					<span>50</span>
+					<span>x</span>
+					<span>20</span>
+					<span>=</span>
+
+					<p class="full-w t-xl t-bold ">70</p>
+				</div>
+			</div>
+			<div class="day-4-col  order-1 t-black">
+				<span class="t-center  bg-success bg-success-light-hover">2nd</span>
+				<span class="t-center  bg-success bg-success-light-hover">(</span>
+				<span class="t-center  bg-success bg-success-light-hover">)</span>
+				<span class="t-center  bg-success bg-success-light-hover">%</span>
+
+				<span class="t-center  bg-success bg-success-light-hover">1/x</span>
+				<span class="t-center  bg-success bg-success-light-hover">x2</span>
+				<span class="t-center  bg-success bg-success-light-hover">x3</span>
+				<span class="t-center  bg-success bg-success-light-hover">yx</span>
+
+				<span class="t-center  bg-success bg-success-light-hover">sin</span>
+				<span class="t-center  bg-success bg-success-light-hover">cos</span>
+				<span class="t-center  bg-success bg-success-light-hover">tan</span>
+				<span class="t-center  bg-success bg-success-light-hover">In</span>
+
+				<span class="t-center  bg-success bg-success-light-hover">sinh</span>
+				<span class="t-center  bg-success bg-success-light-hover">cosh</span>
+				<span class="t-center  bg-success bg-success-light-hover">tanh</span>
+				<span class="t-center  bg-success bg-success-light-hover">ex</span>
+
+				<span class="t-center  bg-success bg-success-light-hover">Rad</span>
+				<span class="t-center  bg-success bg-success-light-hover">PI</span>
+				<span class="t-center  bg-success bg-success-light-hover">EE</span>
+				<span class="t-center  bg-success bg-success-light-hover">Rand</span>
+			</div>
+			<!--******************************************-->
+			<div class="day-4-col t-black">
+				<span class="t-center  bg-warning bg-warning-dark-hover">CE</span>
+				<span class="t-center  bg-warning bg-warning-dark-hover">C</span>
+				<!-- <span class="t-center  bg-warning bg-warning-hover">x</span> -->
+				<span class="t-center  bg-warning bg-warning-dark-hover">,</span>
+				<span class="t-center  bg-warning-dark bg-warning-hover">/</span>
+
+				<span class="t-center  bg-warning-light bg-warning-hover">7</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">8</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">9</span>
+				<span class="t-center  bg-warning-dark bg-warning-hover">X</span>
+
+				<span class="t-center  bg-warning-light bg-warning-hover">4</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">5</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">6</span>
+				<span class="t-center  bg-warning-dark bg-warning-hover">-</span>
+
+
+				<span class="t-center  bg-warning-light bg-warning-hover">2</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">2</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">3</span>
+				<span class="t-center  bg-warning-dark bg-warning-hover">+</span>
+
+				<span class="t-center  bg-warning bg-warning-dark-hover">+/-</span>
+				<span class="t-center  bg-warning-light bg-warning-hover">0</span>
+				<span class="t-center item-2  bg-danger-light bg-danger-hover">=</span>
+			</div>
+		</div>
+	</section>
+
+	<!--******************************************-->
+	<!-- Design a user profile and be mindful of the most important data, names, imagery, placement, etc. Is it for a serious profile? A social profile? (It's up to you!) -->
+
+	<section class=" day-6-bg  shadow-in-top">
+
+		<div class="day-6-hero container img-container h-200 ">
+			<img loading="lazy"
+				src="https://images.unsplash.com/photo-1480223771521-56ec4090b4c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMTI4NzN8MHwxfGNvbGxlY3Rpb258MzEyfDQ4ODUxNHx8fHx8Mnw&ixlib=rb-1.2.1&q=80&w=400">
+		</div>
+		<div class="content px-2   day-6 bg-white pb-3 z-modal round-bottom-2">
+			<!--  -->
+			<div class="day-6-sidebar t-center">
+				<div class="profile-container mx-a  ">
+					<div class="sphere red-to-blue " id="circulo1"></div>
+					<div class="sphere black " id="circulo2"> </div>
+					<div class="sphere profile-picture day-6-hero " id="circulo2">
+						<img loading="lazy"
+							src="https://images.unsplash.com/photo-1576135711730-51049b41de78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMTI4NzN8MHwxfGNvbGxlY3Rpb258NTE2fDEyMzZ8fHx8fDJ8&ixlib=rb-1.2.1&q=80&w=400">
+					</div>
+				</div>
+				<p class="bold t-lg ">Samanta R.</p>
+				<p class="t-info">Product manager</p>
+			</div>
+			<!--  -->
+			<div class="day-6-content ">
+				<p class="t-uppercase t-gray t-2">rankings</p>
+				<i class="t-warning fas fa-star"></i>
+				<i class="t-warning fas fa-star"></i>
+				<i class="t-warning fas fa-star"></i>
+				<i class="t-warning fas fa-star"></i>
+				<i class="t-warning fas fa-star-half-alt"></i>
+				<div class="flex  my">
+					<p class="t-gray-dark">
+						<i class="fas fa-comment-alt mr"></i>Send message
+					</p>
+					<button class="btn bg-info-light mx">contacts</button>
+					<button class="btn bg-gray-light-t ">report user</button>
+					<!-- <button>button</button>
+					<button class="btn-border ">button</button>
+					<button class=" ">button</button> -->
+				</div>
+				<button class="tab"><i class="fas fa-clock"></i>Timeline</button>
+				<button class="tab-active"><i class="fas fa-user"></i> About</button>
+				<div class="my flex day-6-list">
+					<p class="flex-12 t-gray t-md t-uppercase">Contact information</p>
+
+					<p class="flex-3">Phone:</p>
+					<p class="flex-9 t-info">+ 1 123 456 7890</p>
+
+					<p class="flex-3">Address:</p>
+					<p class="flex-9">
+						<span>555 Avenue Street</span> <br>
+						<span>New York, NY 132 456 798</span>
+					</p>
+
+					<p class="flex-3">E-mail:</p>
+					<p class="flex-9 t-info">hello@example.com</p>
+
+					<p class="flex-3">Site:</p>
+					<p class="flex-9 t-info">www.example.com</p>
+
+					<p class="flex-12 t-gray t-md t-uppercase">Basic information</p>
+
+					<p class="flex-3">Birthday:</p>
+					<p class="flex-9 ">june 5, 1992</p>
+
+					<p class="flex-3">Gender:</p>
+					<p class="flex-9 ">Male</p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!--******************************************-->
+	<!-- <section class="bg-pink">
+
+		<div class="  p round-3 day-7-bg">
+			<div class="full relative flex-col ai-center  day-7 round-3 gap-col py-3 ">
+			
+
+				<div class="t-center flex t-white   round-2 day-7-1 t-bold jc-center ai-center ">
+					<span class="flex-6 t-white t-3">Music</span>
+					<input type="range" name="" value="1" max="2" min="1" id="" class="flex-4">
+					<span class="flex-6 t-white t-3">Sound</span>
+					<input type="range" name="" value="2" max="2" min="1" id="" class="flex-4">
+				</div>
+
+				<div class="bg-info flex  px  gap-2 jc-between ai-center t-center  round-2 day-7-2">
+					<span class="round-circle  mx-a t-white  flex jc-center ai-center day-7-i">
+						<i class="fas fa-info  t-3"></i>
+					</span>
+					<p class="flex-8 t-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					</p>
+				</div>
+
+				<button class="t-white t-bold day-7-btn round-2">Cotact us</button>
+				<button class="t-white t-bold day-7-btn round-2">Restore</button>
+
+			</div>
+		</div>
+
+	</section> -->
+	<!--******************************************-->
+	<section class="img-container full-vh">
+		<img loading="lazy"
+			src="https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1123&q=80">
+		<div class=" day-8   t-center  full-w py t-dark">
+
+			<h1 class="t-10 t-bold">404</h1>
+			<p>You have entered into the void</p>
+			<button class="btn-xl bg-purple-t my t-bold day-8-btn">
+				Get me out of here
+				<i class="fas fa-rocket ml "></i>
+			</button>
+
+		</div>
+	</section>
+
+	<!--******************************************-->
+	<section class="img-container ">
+
+		<img loading="lazy"
+			src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80">
+		<!-- - -->
+
+		<div class="content-sm bg-white day-9 round-3 shadow-in-top shadow-in-bottom">
+			<div class=" mx-a img-container h-300 day-9-img shadow-bottom">
+				<img loading="lazy" class="day-9-portrait"
+					src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80">
+			</div>
+			<!-- - -->
+			<div class="day-9-content py relative z-normal">
+				<div class="t-warning round-4 absolute bg-white shadow h-3  day-9-play">
+					<!-- <i class="fas fa-play-circle t-white t-2"></i> -->
+					<i class="t-2 fas fa-backward " id="day-9-backward"></i>
+					<i class="t-4 fas fa-play-circle t-warning bg-white shadow" id="day-9-play" title="play"></i>
+					<i class="t-2 fas fa-forward" id="day-9-forward"></i>
+				</div>
+				<!-- progress -->
+				<div class="day-9-progress-container" id="progress-container">
+					<div class="day-9-progress" id="progress"></div>
+					<div class="day-9-duration-wrapper">
+						<span id="current-time">0:00</span>
+						<span id="duration">2:00</span>
+					</div>
+				</div>
+				<!-- audio -->
+				<audio src="music/jacinto-1.mp3" class="day-9-audio"></audio>
+				<!-- ----- -->
+				<!-- <p class="t-center t-2">3:50</p> -->
+				<h1 class="t-center t-bold" id="day-9-title">One more time</h1>
+				<p class="t-center t-gray" id="day-9-artist">Pepito Musiquito</p>
+
+				<ul class="mt-3 gap-col-2 day-9-list">
+					<!-- <li class="day-9-li-active">Always with you
+						<span class="mx-a float-right">4:12</span>
+					</li>
+					<li class="day-9-li">jacinto
+						<span class="mx-a float-right">3:50</span>
+					</li>
+					<li class="day-9-li"> No more
+						<span class="mx-a float-right">6:19</span>
+					</li>
+					<li class="day-9-li"> Whatever happens tomorrow
+						<span class="mx-a float-right">5:00</span>
+					</li> -->
+				</ul>
+
+
+				<div class="flex jc-between w-50% mx-a mt-3">
+					<i class="fas fa-list-ul"></i>
+					<i class="fas fa-random"></i>
+					<!-- <i class="fas fa-backward "></i>
+					<i class="fas fa-play-circle "></i>
+					<i class="fas fa-forward"></i> -->
+					<i class="fas fa-exchange-alt"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- --------------- -->
+	<script>
+		const songImage = document.querySelector(".day-9-portrait")
+		const songTitle = document.getElementById("day-9-title")
+		const songArtist = document.getElementById("day-9-artist")
+		const music = document.querySelector("audio")
+		const progressContainer = document.getElementById("progress-container")
+		const progress = document.getElementById("progress")
+		const currentTimeEl = document.getElementById("current-time")
+		const durationEl = document.getElementById("duration")
+		const prevBtn = document.querySelector("#day-9-backward")
+		const playBtn = document.querySelector("#day-9-play")
+		const nextBtn = document.querySelector("#day-9-forward")
+		const songsList = document.querySelector(".day-9-list")
+		// music
+		const songs = [
+			{ name: "jacinto-1", displayName: "Electric Chill Machine", artist: "Jacinto Desing" },
+			{ name: "jacinto-2", displayName: "Seven nation Armi (Remix)", artist: "Jacinto Desing" },
+			{ name: "jacinto-3", displayName: "Goodnight, Disco Queen", artist: "Jacinto Desing" },
+			{ name: "metric-1", displayName: "Front Row (Remix)", artist: "Metric/Jacinto Desing" }
+		]
+
+		// -----
+		// check if Playing
+		let isPlaying = false
+		let isReady = true
+		// play
+		function playSong() {
+			isPlaying = true
+			playBtn.classList.replace("fa-play-circle", "fa-pause-circle")
+			playBtn.setAttribute("title", "pause")
+			music.play()
+		}
+		// pause
+		function pauseSong() {
+			isPlaying = false
+			playBtn.classList.replace("fa-pause-circle", "fa-play-circle")
+			playBtn.setAttribute("title", "play")
+			music.pause()
+		}
+		// prevSong 
+		let songIndex = 0
+		// prevSong
+		function prevSong() {
+			songIndex--
+			if (songIndex < 0) {
+				songIndex = songs.length - 1
+			}
+			loadSong(songs[songIndex])
+			playSong()
+		}
+		// nextSong 
+		function nextSong() {
+			songIndex++
+
+			if (songIndex > songs.length - 1) {
+				songIndex = 0
+			}
+			loadSong(songs[songIndex])
+			playSong()
+		}
+		// 
+		playBtn.addEventListener("click", () => {
+			isPlaying ? pauseSong() : playSong()
+		})
+		// update dom
+		function loadSong(song) {
+
+			// console.log(song);
+			songTitle.textContent = song.displayName
+			songArtist.textContent = song.artist
+			music.src = `music/${song.name}.mp3`
+			songImage.src = `img/${song.name}.jpg`
+
+		}
+		// update progress bar
+
+		function updateProgressBar(e) {
+			if (isPlaying) {
+				const { duration, currentTime } = e.srcElement
+				const progressPercent = (currentTime / duration) * 100
+				progress.style.width = `${progressPercent}%`
+				// 
+				const durationMinutes = Math.floor(duration / 60)
+				let durationSeconds = Math.floor(duration % 60)
+				if (durationSeconds < 10) {
+					durationSeconds = `0${durationSeconds}`
+				}
+				// delay
+				if (durationSeconds) {
+					durationEl.textContent = `${durationMinutes}:${durationSeconds}`
+					// 
+					const currentMinutes = Math.floor(currentTime / 60)
+					let currentSeconds = Math.floor(currentTime % 60)
+					if (currentSeconds < 10) {
+						currentSeconds = `0${currentSeconds}`
+					}
+					currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`
+				}
+			}
+		}
+		// setProgressBar
+		function setProgressBar(e) {
+			const width = this.clientWidth
+			const clickX = e.offsetX
+			const { duration } = music
+			// console.log((clickX / width) * duration);
+			music.currentTime = (clickX / width) * duration
+		}
+		// 
+		function renderSongsList() {
+			let listSongstemplate = ``
+			songs.forEach((song, index) => {
+
+				const classActive = songIndex == index ? "day-9-li-active" : "day-9-li"
+				const template = `	
+					<li class="${classActive}" id="${index}">
+						${song.displayName}
+					</li>`
+				// <span class="mx-a float-right t-sm">${song.duration}</span>
+				listSongstemplate += template
+			});
+			songsList.innerHTML += listSongstemplate
+		}
+		// select song
+		function selectSong(e) {
+
+			if (e.target.id != songIndex && isReady && e.target.id) {
+				isReady = false
+				songIndex = e.target.id
+				loadSong(songs[songIndex])
+				playSong()
+				// console.log(e.target);
+				document.querySelector(".day-9-li-active") ?
+					document.querySelector(".day-9-li-active").classList.replace("day-9-li-active", "day-9-li")
+					: e.target.classList.replace("day-9-li", "day-9-li-active")
+				e.target.classList.replace("day-9-li", "day-9-li-active")
+				isReady = true
+			}
+		}
+		// on load
+		loadSong(songs[songIndex])
+		renderSongsList()
+		// event
+		prevBtn.addEventListener("click", prevSong)
+		nextBtn.addEventListener("click", nextSong)
+		music.addEventListener("timeupdate", updateProgressBar)
+		music.addEventListener("ended", nextSong)
+		songsList.addEventListener("click", selectSong)
+		progressContainer.addEventListener("click", setProgressBar)
+
+	</script>
+
+	<!--******************************************-->
+	<section>
+		<div class="content  t-light day-10">
+			<i class="bg-info fab fa-twitter"></i>
+			<i class="bg-danger fab fa-google-plus-g"></i>
+			<i class="bg-warning fas fa-share-alt"></i>
+			<i class="bg-danger-dark fas fa-thumbtack"></i>
+			<i class="bg-info-dark fab fa-facebook-f"></i>
+		</div>
+	</section>
+
+	<!--******************************************-->
+
+	<section class=" content-m">
+		<!--  -->
+		<!-- <div class="content felx "> -->
+		<button class="day-11-btn bg-info-t round mb">Show flash message</button>
+
+		<div class=" t-bold  bg-success-light-t day-11 mb crop relative  flex jc-center ai-center">
+			<span class=" ">Success</span>
+			<span class="right center absolute bg-success flex jc-center ai-center h-100% w-4">
+				<i class="fas fa-check"></i>
+			</span>
+		</div>
+
+		<div class=" t-bold  bg-danger-light-t day-11 mb crop relative  flex jc-center ai-center">
+			<span class=" ">Danger</span>
+			<span class="right center absolute bg-danger flex jc-center ai-center h-100% w-4">
+				<i class="fas fa-times"></i>
+			</span>
+		</div>
+
+		<div class=" t-bold  bg-warning-light t-white day-11 mb crop relative  flex jc-center ai-center">
+			<span class=" ">Warning</span>
+			<span class="right center absolute bg-warning-t flex jc-center ai-center h-100% w-4">
+				<i class="fas fa-exclamation"></i>
+			</span>
+		</div>
+		<!-- </div> -->
+		<!--  -->
+	</section>
+
+	<!--******************************************-->
+
+	<section class="bg-danger">
+		<div class="content  bg-white day-12 ">
+			<div class="flex  jc-center bg-gray-light h-100% ">
+				<div class="w-100% h-300 t-center">
+					<img loading="lazy" src="https://freepngimg.com/thumb/shoes/28530-3-nike-shoes-transparent.png"
+						class="h-100% ">
+				</div>
+				<span class="day-12-galery round self-flex-end bg-gray-dark"></span>
+				<span class="day-12-galery round self-flex-end bg-gray"></span>
+				<span class="day-12-galery round self-flex-end bg-gray"></span>
+			</div>
+			<!-- ---------------- -->
+			<div class="px py-2 flex-col ai-center jc-center ">
+				<h1 class="t-bold t-3">Ultra boost shoes</h1>
+				<h2 class=" t-danger-dark t-bold mb"><span class="t-3">$</span> 250</h2>
+
+				<p>Color</p>
+				<div class="day-12-color">
+					<div class=" bg-danger round-circle active"></div>
+					<div class=" bg-warning round-circle mx"></div>
+					<div class=" bg-success-dark round-circle"></div>
+				</div>
+
+				<p class="mt">Size</p>
+				<div class="">
+					<span class="t-gray ">41</span>
+					<span class="t-gray-dark mx">42</span>
+					<span class="t-gray">43</span>
+				</div>
+
+				<div class="flex  t-danger t-bold mt">
+					<button class="day-12-btn-line mr"><i class="far fa-heart t-2 "></i></button>
+					<button class="bg-danger t-light">ADD TO CART</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--******************************************-->
+	<!-- <section class="bg-info">
+		<div class="container day-13  bg-white  round-2 crop">
+
+			<div class="  bg-purple-light t-light h-100%">
+				<div class="flex ai-center jc-between bg-purple-hover p">
+					<img loading="lazy"
+						src="https://images.unsplash.com/photo-1576135711730-51049b41de78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMTI4NzN8MHwxfGNvbGxlY3Rpb258NTE2fDEyMzZ8fHx8fDJ8&ixlib=rb-1.2.1&q=80&w=400"
+						class="day-13-profile mr">
+					<span class="flex-auto t-bold relative">Samanta R.
+
+					</span>
+					<span class=" bg-purple-dark-t round-circle t-2 day-13-badge ">2</span>
+					<span class=" flex-2 t-right t-2 ">18:45</span>
+				</div>
+				<div class="flex ai-center jc-between p bg-purple ">
+					<img loading="lazy"
+						src="https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1123&q=80"
+						class="day-13-profile mr">
+					<span class="flex-auto t-bold ">Carl</span>
+					<span class=" flex-2 t-right t-2 ">8:25</span>
+				</div>
+				<div class="flex ai-center jc-between p bg-purple-hover ">
+					<img loading="lazy"
+						src="https://images.pexels.com/photos/6243806/pexels-photo-6243806.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+						class="day-13-profile mr">
+					<span class="flex-auto t-bold ">Luis Miguel</span>
+					<span class=" flex-2 t-right t-2 ">1:14</span>
+				</div>
+			</div>
+
+			<div class=" jc-between  bg-purple pt t-black">
+
+				<div class="day-13-comment ">
+					<p class="t-danger t-2 t-left">111 111 1115</p>
+					Lorem ipsum dolor sit amet.
+				</div>
+				<div class="day-13-comment-you  ml-a">
+					<p class="t-success t-2 t-right">555 555 5555</p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
+					accusantium dolore quo, in, vero maiores nostrum debitis excepturi suscipit sit maxime! Iste sequi molestias
+					at vero expedita libero nihil voluptates!
+				</div>
+				<p class="t-gray t-center my">3 Months</p>
+				<div class="day-13-comment-you  ml-a">
+					<p class="t-success t-2 t-right">555 555 5555</p>
+					Lorem ipsum dolor sit amet
+				</div>
+				<div class="day-13-comment ">
+					<p class="t-danger t-2 t-left">111 111 1115</p>
+					Lorem ipsum dolor sit amet.
+				</div>
+				<div class="day-13-comment ">
+					<p class="t-danger t-2 t-left">111 111 1115</p>
+					Lorem ipsum dolor sit amet.
+				</div>
+
+
+				<div class="bg-gray-light flex ai-center gap mt-2">
+					<i class="fas fa-microphone t-gray p px-2 "></i>
+					<input type="text" placeholder="Message" class="flex-auto round-1 h-3 ">
+					<i class="fab fa-telegram-plane t-purple-light p px-2"></i>
+				</div>
+			</div>
+
+		</div>
+
+	</section> -->
+
+	<!--******************************************-->
+
+	<section class="day-14-bg">
+		<div class="content day-14 ">
+
+			<div class="day-14-time pt-2 flex-col jc-center ai-center  round-1 relative">
+				<!--  -->
+				<div class="flex ai-center jc-between  mb-2 full-w px-2 absolute  day-14-options">
+					<i class="fas fa-trash"></i>
+					<i class="fas fa-undo"></i>
+				</div>
+				<!--  -->
+				<div class="day-14-circle flex-col  round-circle jc-center ai-center shadow-bottom z-normal t-cian">
+					<span class="t-3 bold ">00:30:00</span>
+					<!-- <i class="fas fa-pause "></i> -->
+				</div>
+
+			</div>
+			<!--  -->
+			<div class="bg-white relative p-2 shadow-bottom">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 313.92 78" class="day-14-svg absolute top center">
+					<defs>
+						<style>
+							.cls-1 {
+								fill: #5ea2a6;
+							}
+						</style>
+					</defs>
+					<title>Recurso 1</title>
+					<g id="Capa_2" data-name="Capa 2">
+						<g id="Capa_1-2" data-name="Capa 1">
+							<path class="cls-1"
+								d="M313.92,0a48.06,48.06,0,0,0-38.17,19.13A149,149,0,0,1,157,78,149,149,0,0,1,38.17,19.13,48.06,48.06,0,0,0,0,0Z" />
+						</g>
+					</g>
+				</svg>
+
+
+				<i class="fas fa-pause absolute day-14-pause "></i>
+				<!-- ---- -->
+				<div class="flex  jc-between  mb-3 t-cian">
+					<i class="fas fa-pencil-alt"></i>
+					<i class="fas fa-bell"></i>
+				</div>
+
+				<!--  -->
+				<div class="flex mb-3 ai-center ">
+					<button class="day-14-btn">Ringtone</button>
+					<button class="t-gray">Default</button>
+					<!-- <i class="fas fa-chevron-right t-gray "></i> -->
+				</div>
+				<p>Volume</p>
+				<!-- <i class="fas fa-volume-down"></i> -->
+				<div class="day-14-range relative my-2">
+					<div class="day-14-progress full-h  w-50% "></div>
+					<div class="day-14-ball absolute center "></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<section class="bg-warning">
+
+		<button id="modal-open" class="bg-warning-dark">Open modal</button>
+
+		<div id="modal" class=" modal-bg  flex jc-center ai-center day-16 hide z-modal">
+			<div class="container-sm bg-white shadow   ">
+				<div class="bg-light h-200 t-center relative">
+					<i class=" fas fa-chevron-left t-dark absolute left-10% top-10% t-info-hover"></i>
+					<img loading="lazy" src="../img/settings.svg" alt="">
+				</div>
+				<!--  -->
+				<div class="py-2 px-3  bg-dark-t gap-col">
+					<p class="">Settings</p>
+
+					<label class="switch t-4 ">
+						<input type="checkbox" checked>
+						<span class="slider-round shadow-bottom"></span>
+						<i class=" label-on fas fa-power-off "></i>
+						<i class=" label-off fas fa-power-off rotate-180 "></i>
+					</label>
+					<!--  -->
+
+					<p class="">Connect with APIs</p>
+
+					<div class=" input-group mb-3 t-3  round">
+						<i class="fas fa-search input-icon bg-danger round-left-2"></i>
+						<input class="input-control round-right-2" placeholder="placeholder" type="text">
+					</div>
+
+					<button class=" bg-success   btn-xl round-2 " id="modal-accept">Accept</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+
+	<!--******************************************-->
+	<section class="bg-info-light">
+		<div class="content day-17">
+			<div class="img-container t-light bg-dark pb-2 day-17-hero">
+				<img loading="lazy"
+					src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1116&q=80"
+					alt="" class="opacity-6">
+				<h1 class=" mt-4 bold t-4">join today in the biggest community ever</h1>
+				<p class=" ">chat with people around the world</p>
+				<p class=" ">December 12 2021</p>
+			</div>
+			<!-- ---------- -->
+			<div class="bg-white day-17-content relative z-normal">
+				<button class="btn bold bg-purple-t round-1 absolute day-17-btn ">Join now</button>
+				<div class="flex jc-between ai-center">
+					<span class="t-3">Private chat</span>
+					<span class=" flex-auto mx day-17-dots"></span>
+					<span class="t-gray bold">Total</span>
+				</div>
+				<div class="flex jc-between ai-flex-end">
+					<span class="t-2 flex-6">Together we will go further</span>
+					<p class="t-3 bold flex-6 t-right"><span class="t-2">$</span>15.00</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<section class="bg-gray">
+		<div class=" bg-dark-t  px-2 pt pb-3  t-center day-18-top relative content-sm">
+			<button class="absolute top right bg-transparent t-2">
+				<i class="fas fa-times"></i>
+			</button>
+
+			<p class="t-3 bold">Activity chart</p>
+			<p class="t-2">Fri, Nov 14</p>
+			<div class="h-250  day-18-chart  mt-2">
+
+
+				<div class="day-18-line h-50% left-20%"></div>
+				<div class="day-18-line h-70% left-50%"></div>
+				<div class="day-18-line h-10% left-70%"></div>
+				<div class="day-18-line h-100% left-90%"></div>
+			</div>
+			<div class="flex jc-between t-2  px ">
+				<span>12am</span>
+				<span>Noon</span>
+				<span>11pm</span>
+			</div>
+
+		</div>
+		<!-- ---------- -->
+		<div class=" bg-gray px-2 t-light py-2 t-center shadow-bottom day-18-bottom z-normal relative content-sm">
+			<div class="flex jc-between  day-18-arrows px-2 t-3">
+				<!-- <i class="fas fa-chevron-left  bg-white t-info round-circle shadow-bottom"></i>
+				<i class="fas fa-chevron-right  bg-white t-info round-circle shadow-bottom"></i> -->
+				<i class="shadow-bottom fas fa-chevron-left t-info round-circle bg-white box-2"></i>
+				<i class="shadow-bottom fas fa-chevron-right t-info round-circle bg-white box-2"></i>
+
+			</div>
+			<h1 class=" t-6">90 <span class="t-5">minutes</span></h1>
+			<p><span>556 Cal</span><span class="mx t-gray-dark">|</span> <span>1.6 mi</span></p>
+		</div>
+	</section>
+
+
+
+	<!--******************************************-->
+
+	<section class="bg-info-dark">
+		<div class=" container-md bg-white day-19">
+
+			<div class=" h-350 t-light  flex-col jc-between day-19-hero">
+				<div class="flex jc-between ">
+					<i class="fas fa-chevron-left "></i>
+					<span class="hamburger"></span>
+				</div>
+				<h1 class="bold t-6 ">Honored members</h1>
+				<!-- <p class="t-lg">Top users</p> -->
+
+				<div class="flex jc-between  ">
+					<span class="flex-auto">Top Users</span>
+					<span class="flex-3 t-md t-right t-uppercase">SCORE</span>
+					<span class="flex-3 t-md t-right t-uppercase">TOTAL</span>
+				</div>
+			</div>
+			<!-- ----- -->
+			<div class="bg-white day-19-body">
+
+				<table class="t-md mb-3  ">
+					<!-- <thead>
+						<tr>
+							<th></th>
+							<th></th>
+							<th class="t-center t-uppercase" colspan="2">score</th>
+							<th class="t-center t-uppercase">total</th>
+						</tr>
+					</thead> -->
+					<tr class="h-5">
+						<td class="bold">1</td>
+						<td><img loading="lazy" src="../img/bread.png" class="h-100 w-100 round-circle"></td>
+						<td>Martin C</td>
+						<td class="t-center ">120</td>
+						<td class="t-center ">24</td>
+						<td class="t-right bold t-purple-light">144</td>
+					</tr>
+					<tr class="h-5">
+						<td class="bold">2</td>
+						<td><img loading="lazy"
+								src="https://thumbs.dreamstime.com/b/retrato-masculino-del-icono-del-perfil-del-hombre-de-negocios-plano-47075259.jpg"
+								class="h-100 w-100 round-circle"></td>
+						<td>Christobal C.</td>
+						<td class="t-center ">90</td>
+						<td class="t-center ">22</td>
+						<td class="t-right bold t-purple-light">112</td>
+					</tr>
+					<tr class="h-5">
+						<td class="bold">3</td>
+						<td><img loading="lazy"
+								src="https://thumbs.dreamstime.com/b/retrato-masculino-del-icono-del-perfil-del-hombre-de-negocios-plano-47075259.jpg"
+								class="h-100 w-100 round-circle"></td>
+						<td>Martin C</td>
+						<td class="t-center ">85</td>
+						<td class="t-center ">14</td>
+						<td class="t-right bold t-purple-light">99</td>
+					</tr>
+					<tr class="h-5">
+						<td class="bold">4</td>
+						<td><img loading="lazy"
+								src="https://thumbs.dreamstime.com/b/retrato-masculino-del-icono-del-perfil-del-hombre-de-negocios-plano-47075259.jpg"
+								class="h-100 w-100 round-circle"></td>
+						<td>Christobal C.</td>
+						<td class="t-center ">80</td>
+						<td class="t-center ">22</td>
+						<td class="t-right bold t-purple-light">102</td>
+					</tr>
+					<tr class="h-5">
+						<td class="bold">5</td>
+						<td><img loading="lazy"
+								src="https://thumbs.dreamstime.com/b/retrato-masculino-del-icono-del-perfil-del-hombre-de-negocios-plano-47075259.jpg"
+								class="h-100 w-100 round-circle"></td>
+						<td>Martin C</td>
+						<td class="t-center ">75</td>
+						<td class="t-center ">14</td>
+						<td class="t-right bold t-purple-light">89</td>
+					</tr>
+					<tr class="h-5">
+						<td class="bold">6</td>
+						<td><img loading="lazy"
+								src="https://thumbs.dreamstime.com/b/retrato-masculino-del-icono-del-perfil-del-hombre-de-negocios-plano-47075259.jpg"
+								class="h-100 w-100 round-circle"></td>
+						<td>Christobal C.</td>
+						<td class="t-center ">60</td>
+						<td class="t-center ">22</td>
+						<td class="t-right bold t-purple-light">72</td>
+					</tr>
+				</table>
+				<!-- ------ -->
+				<div class="flex jc-around ai-center ">
+					<div class=" day-19-profile  ">
+						<div class=" h-10 w-10 img-container round-circle shadow-bottom">
+							<img loading="lazy" src="../img/bread.png" class=" ">
+						</div>
+
+						<h4 class="t-2 bold">Martin C </h4>
+						<p class="">medals</p>
+						<div class="">
+							<i class="t-warning fas fa-trophy"></i>
+							<i class="t-gray fas fa-medal"></i>
+							<i class="t-orange-dark fas fa-award"></i>
+						</div>
+					</div>
+					<!-- --- -->
+					<div class=" day-19-profile ">
+						<div class=" h-10 w-10 img-container round-circle shadow-bottom">
+							<img loading="lazy"
+								src="https://thumbs.dreamstime.com/b/retrato-masculino-del-icono-del-perfil-del-hombre-de-negocios-plano-47075259.jpg"
+								class=" ">
+						</div>
+
+						<h4 class="t-2 bold">Christobal C. </h4>
+						<p class="">medals</p>
+						<div class="">
+							<i class="t-warning fas fa-trophy"></i>
+							<i class="t-gray fas fa-medal"></i>
+							<i class="t-orange-dark fas fa-award"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<!--==========================================-->
+	<footer class="bg-dark t-center ">
+		<div class="content flex jc-center">
+			<button class="bg-orange "><a href="second.html">second</a></button>
+			<button class="bg-white" id="toggledark"> <i class="fas fa-moon"></i></button>
+		</div>
+	</footer>
+
+
+</body>
+<!-- === === === === === === script === === === === === === -->
+
+<script>
+
+
+	const modalOpen = query("#modal-open")
+	const modal = query("#modal")
+	const modalAcept = query("#modal-accept")
+
+
+
+
+	modalOpen.addEventListener("click", (e) => {
+		modal.classList.remove("hide")
+	})
+
+	modalAcept.addEventListener("click", (e) => {
+		modal.classList.add("hide")
+	})
+	modal.addEventListener("click", (e) => {
+		// if (e.target.id == modal.id) {
+		// 	modal.classList.add("hide")
+		// }
+		e.target.id == modal.id ? modal.classList.add("hide") : false;
+	})
+
+</script>
+
+<!-----------------------dark mode----------------------->
+<script type="text/javascript">// Apply the cached theme on reload
+	const theme = localStorage.getItem("theme");
+	if (theme) {
+		// body.classList.add(theme);
+		document.body.classList.toggle(theme);
+	}
+	// Select the button
+	const darkBtn = document.querySelector("#toggledark");
+	// Listen for a click on the button
+	darkBtn.addEventListener("click", function () { switchTheme("dark-theme"); });
+	function switchTheme(themeName) {
+		document.body.classList.toggle(themeName);
+		if (!theme) {
+			localStorage.setItem("theme", "dark-theme");
+		} else {
+			localStorage.removeItem("theme");
+		}
+	}</script>
+
+<!-----------------------html font size----------------------->
+<script>
+	var html = document.getElementsByTagName('html')[0];
+	function fontSize(size = "10%") {
+		html.style.fontSize = size
+	}
+</script>
+<!---------------------------------------------->
+
+
+
+</html>

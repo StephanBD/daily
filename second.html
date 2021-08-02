@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="src/scss/main.scss">
+	<style>
+		.spikes {
+			position: relative;
+
+
+		}
+
+		.spikes::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			left: -0%;
+			bottom: 0;
+			z-index: 10;
+			display: block;
+			height: 20px;
+			background-size: 20px 100%;
+			/* background-image: linear-gradient(135deg, #2c3e50 25%, transparent 25%), linear-gradient(225deg, #2c3e50 25%, transparent 25%);
+			background-position: 0 0; */
+			background-image:
+				linear-gradient(45deg, white 25%, transparent 25%),
+				linear-gradient(315deg, white 25%, transparent 25%);
+			background-position: 0 0;
+		}
+	</style>
+</head>
+
+<body class="_screen_size">
+
+
+
+	<!--******************************************-->
+	<section class="">
+		<div class=" gap-4 container day-20">
+
+			<div class="b-1 b-solid b-gray-light">
+				<div class="flex jc-between align-center p b-1 b-solid b-gray-light">
+					<i class="fas fa-arrow-left t-purple-light"></i>
+					<span>Add New Location</span>
+					<i class="fas fa-save t-purple-light"></i>
+				</div>
+				<!-- ------ -->
+				<div class=" day-20-body shadow-bottom">
+
+					<!-- <label for="name3">name</label>
+					<input type="text" id="name3"> -->
+					<div class="relative">
+						<input type="text" class="day-20 input" id="name3" placeholder="xxx">
+						<label for="name3">name</label>
+					</div>
+
+					<div class="input-group mb">
+						<i class="fas fa-times p t-purple-light"></i>
+						<div class="">
+							<p class="t-gray">on monday</p>
+							<p class="bold">3:00 pm - 5:00 pm</p>
+						</div>
+					</div>
+
+					<p class="t-gray">On saturday</p>
+					<p class="bold">3:00 pm - 5:00 pm</p>
+					<button class="t-uppercase bg-purple-light-t btn-center round-5 mt">add time</button>
+				</div>
+				<!--  -->
+				<p class="t-center bold ">Apps Block</p>
+
+				<div class="flex px ai-center  day-20-list">
+					<div class="box bg-gray-light mr"></div>
+					<p class="flex-auto">Block App Store</p>
+					<label class="switch t-1 float-right">
+						<input type="checkbox" checked>
+						<span class="slider-round shadow-bottom"></span>
+					</label>
+				</div>
+				<div class="flex px ai-center  day-20-list">
+					<div class="box bg-gray-light mr"></div>
+					<p class="flex-auto">Block App Store</p>
+					<label class="switch t-1 float-right">
+						<input type="checkbox" checked>
+						<span class="slider-round shadow-bottom"></span>
+					</label>
+				</div>
+				<div class="flex px ai-center  day-20-list">
+					<div class="box bg-gray-light mr"></div>
+					<p class="flex-auto">Block App Store</p>
+					<label class="switch t-1 float-right">
+						<input type="checkbox" checked>
+						<span class="slider-round shadow-bottom"></span>
+					</label>
+				</div>
+				<div class="flex px ai-center  day-20-list">
+					<div class="box bg-gray-light mr"></div>
+					<p class="flex-auto">Block App Store</p>
+					<label class="switch t-1 float-right ">
+						<input type="checkbox">
+						<span class="slider-round shadow-bottom"></span>
+					</label>
+
+				</div>
+				<!-- ------ -->
+				<div class="flex jc-between align-center shadow-bottom py px-2 bg-purple-dark-t relative mt-1">
+					<i class="fas fa-list-ul"></i>
+					<i class="fas fa-fingerprint pointer box t-5 round-circle bg-purple-light absolute center"></i>
+					<i class="fas fa-map-marked-alt"></i>
+				</div>
+
+			</div>
+			<!-- ------------------------- -->
+			<div class=" b-1 b-solid b-gray-light flex-col">
+
+
+				<!-- <div class=" img-var day-20-map" style="--url: url(../../img/map.png)">
+				</div> -->
+				<div class="img-container  day-20-map ">
+					<img loading="lazy" src="../img/map.png" alt="">
+				</div>
+
+
+
+				<div class="flex jc-between align-center shadow-bottom py px-2  z-normal  bg-purple-dark-t relative mt-a">
+					<i class="fas fa-list-ul"></i>
+					<i class="fas fa-fingerprint box pointer t-5 round-circle bg-purple-light absolute center"></i>
+					<i class="fas fa-map-marked-alt"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+
+	<div class=" flex day-21 ">
+		<div class="day-21-menu t-light h-100% flex-col full-vh">
+			<!--  -->
+			<a class="bg-blue-dark p day-21-active">
+				<i class=" fas fa-rocket  box-2"></i>
+				Dashboard
+			</a>
+			<!--  -->
+			<p class="p t-gray">Tools</p>
+			<!--  -->
+			<a class="p ">
+				<i class=" fas fa-hand-sparkles  box-2"></i>
+				<Span>Cleanup</Span>
+				<Span class="t-gray float-right">35.88 GB</Span>
+			</a>
+			<!--  -->
+			<a class="p ">
+				<i class=" fab fa-windows box-2"></i>
+				<Span>Sytem</Span>
+				<Span class="t-gray float-right">9.5 GB</Span>
+			</a>
+			<!--  -->
+			<a class="p ">
+				<i class=" fas fa-photo-video  box-2"></i>
+				<Span>Photo</Span>
+				<Span class="t-gray float-right">5.2 GB</Span>
+			</a>
+			<!--  -->
+			<a class="p ">
+				<i class=" fas fa-mail-bulk  box-2"></i>
+				<Span>Mail</Span>
+				<Span class="t-gray float-right">13.05 GB</Span>
+			</a>
+			<!--  -->
+			<a class="p ">
+				<i class=" fas fa-music  box-2"></i>
+				<Span>Music</Span>
+				<Span class="t-gray float-right">13.9 GB</Span>
+			</a>
+			<!--  -->
+			<a class="p ">
+				<i class=" fas fa-trash box-2"></i>
+				<Span>Trash</Span>
+				<Span class="t-gray float-right">1.6 GB</Span>
+			</a>
+			<!--  -->
+		</div>
+		<!-- ----------------------------- -->
+		<div class="day-21-main bg-white full-H flex-auto p-3">
+			<h1 class="bold">Dashboard</h1>
+			<hr class="b-blue-light b-1 opacity-3 my-2">
+			<!--  -->
+			<div class="flex  ai-center mt-3">
+				<i class="t-blue-light fas fa-database rectangle t-4  "></i>
+				<div class="flex-auto">
+					<p class="bold ">Macintosh HD</p>
+					<p class="t-gray t-2">499.67 GB</p>
+				</div>
+				<span>251.99 GB Available</span>
+			</div>
+			<div class="progress round-5 crop">
+				<div class="w-50% bg-blue-light h-100%"></div>
+			</div>
+
+			<!--  -->
+			<div class="flex  ai-center mt-3">
+				<i class="t-blue-light fas fa-memory rectangle t-4  "></i>
+				<div class="flex-auto">
+					<p class="bold ">Memory</p>
+					<p class="t-gray t-2">16 GB</p>
+				</div>
+				<span>4.7 GB Free</span>
+			</div>
+			<div class="progress round-5 crop">
+				<div class="w-10% bg-blue-light h-100%"></div>
+			</div>
+			<!--  -->
+			<div class="flex  ai-center mt-3">
+				<i class="t-blue-light fas fa-microchip rectangle t-4  "></i>
+				<div class="flex-auto">
+					<p class="bold ">Memory</p>
+					<p class="t-gray t-2">16 GB</p>
+				</div>
+				<span>4.7 GB Free</span>
+			</div>
+			<div class="progress round-5 crop">
+				<div class="w-30% bg-blue-light h-100%"></div>
+			</div>
+			<!--  -->
+		</div>
+	</div>
+
+
+	<!--******************************************-->
+	<div class="img-container t-light full-vh flex-col ">
+
+		<img loading="lazy" src="../img/homepage-models.jpg" alt="" class="">
+
+		<!-- -- -->
+		<div class="content-xl-m  navbar-md  px  ">
+			<a class="btn md:hide   ">Tesla1</a>
+
+			<span class="hamburger mx navbar-toggle md:hide"></span>
+
+			<div class="navbar-list t-dark md:flex md:show w-100% ">
+				<a class="py t-light  md:show px-3 ">Tesla2</a>
+
+				<div class="flex t-light">
+					<a class="btn">forms</a>
+					<a class="btn">aside</a>
+					<a class="btn">aside2</a>
+					<a class="btn">navbars</a>
+					<a class="btn ">darkmode </a>
+				</div>
+
+				<div class="flex ai-center t-light">
+					<a class="btn ">shop</a>
+					<a class="btn">sign in </a>
+					<span class="hamburger  md:show"></span>
+				</div>
+			</div>
+		</div>
+		<!--  -->
+		<div class="t-center mt-5">
+			<h2 class="t-dark">Tesla</h2>
+			<h1 class="t-dark bold t-5">Roadster</h1>
+		</div>
+
+		<!--  -->
+		<div class="flex jc-between ai-center content-m mt-a pb-2 px-2 sm:px-0">
+			<p class="t-center flex-12 mb-2 md:px-10 sm:px-3 t-3">The quickest car in the world, with record-setting
+				acceleration, range and performance. </p>
+			<div class="t-3 flex-auto t-center b-right-1  b-light">
+				<i class="fas fa-car"></i>
+				<span class="bold">1.9s</span>
+				<p class="flex-12 t-md t-center">0-60 kmph</p>
+			</div>
+			<div class="t-3  flex-auto t-center br-1  b-light">
+				<span>+</span>
+				<span class="bold">250 mph</span>
+				<p class="flex-12 t-md t-center">0-60 kmph</p>
+			</div>
+			<div class="t-3  flex-auto t-center">
+				<span>+</span>
+				<span class="bold">620 mi</span>
+				<p class="flex-12 t-md t-center">0-60 kmph</p>
+			</div>
+			<button class="flex-12 md:flex-3 round-4  b-light b-1 md:mt-0 mt-2 btn-lg">reserve now</button>
+		</div>
+	</div>
+
+
+	<!--******************************************-->
+
+	<section class="bg-pink">
+		<div class="content  day-23 gap-1">
+			<!---------------------------------------------->
+			<div class="bg-white round-2 flex-col">
+				<div class="flex jc-between ai-center p t-md mb-3 ">
+					<i class="fas fa-signal pr"></i>
+					<span class="">9:41 AM</span>
+					<div>
+						<span class="">85%</span>
+						<i class="fas fa-battery-three-quarters"></i>
+					</div>
+				</div>
+				<!--  -->
+				<!-- <div class="img-container h-300"> -->
+				<img loading="lazy" src="../img/map.svg" class="day-23-img ">
+				<!-- </div> -->
+				<p class="bold t-center p">Welcome to Insta maps</p>
+				<p class="px t-center t-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, provident.</p>
+				<!--  -->
+				<div class="flex jc-between ai-center p mt-5">
+					<span class="t-md">skip</span>
+					<div class="flex jc-between w-5">
+						<div class="dot bg-info-light "></div>
+						<div class="dot bg-gray-light "></div>
+						<div class="dot bg-gray-light "></div>
+					</div>
+					<span class="t-md">next</span>
+				</div>
+			</div>
+			<!---------------------------------------------->
+			<div class="bg-white round-2 flex-col">
+				<div class="flex jc-between ai-center p t-md mb-3">
+					<i class="fas fa-signal pr"></i>
+					<span class="">9:41 AM</span>
+					<div>
+						<span class="">85%</span>
+						<i class="fas fa-battery-three-quarters"></i>
+					</div>
+				</div>
+				<!--  -->
+				<!-- <div class="img-container h-300"> -->
+				<img loading="lazy" src="../img/mail.svg" class="day-23-img">
+				<!-- </div> -->
+				<p class="bold t-center p">Welcome to Insta maps</p>
+				<p class="px t-center t-md ">Lorem ipsum dolor sit amet.</p>
+				<!--  -->
+				<div class="flex jc-between ai-center p  mt-a">
+					<span class="t-md">skip</span>
+					<div class="flex jc-between w-5">
+						<div class="dot bg-gray-light "></div>
+						<div class="dot bg-info-light "></div>
+						<div class="dot bg-gray-light "></div>
+					</div>
+					<span class="t-md">next</span>
+				</div>
+			</div>
+			<!---------------------------------------------->
+			<div class="bg-white round-2 flex-col">
+				<div class="flex jc-between ai-center p t-md mb-3">
+					<i class="fas fa-signal pr"></i>
+					<span class="">9:41 AM</span>
+					<div>
+						<span class="">85%</span>
+						<i class="fas fa-battery-three-quarters"></i>
+					</div>
+				</div>
+				<!--  -->
+				<!-- <div class="img-container h-300"> -->
+				<img loading="lazy" src="../img/road.svg" class="day-23-img">
+				<!-- </div> -->
+				<p class="bold t-center  p">Welcome to Insta maps</p>
+				<p class="px t-center t-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, provident.</p>
+				<!--  -->
+				<div class="flex jc-center p mt-a">
+
+
+					<a href="" class="t-md t-uppercase a">Get started</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<section>
+		<div class=" content-movile   img-container day-24 ">
+			<img loading="lazy" src="../img/city.jpg" alt="" class="opacity-2 blur-4 dark-theme">
+			<!--  -->
+			<div class="flex-col jc-center  ai-center t-light day-24-body">
+				<img loading="lazy" src="../img/logo.png" alt="" class="box-3">
+				<h1 class="t-lg">Name app</h1>
+
+				<!--  -->
+				<div class="flex my-2 t-center gap w-100% jc-between">
+					<div class="flex-6">
+						<h2 class="bold">Maa</h2>
+						<p class="t-md">CHENNIAL, IN</p>
+					</div>
+					<div class="flex-6">
+						<h2 class="bold">YTO</h2>
+						<p class="t-md">TORONTO, ON</p>
+					</div>
+				</div>
+
+				<!--  -->
+				<div class=" shadow-bottom  p flex t-center t-md w-100% blur-5-bg day-24-purple ">
+					<div class="flex-4 ">
+						<p class="bold">Flight</p>
+						<p>amGO6</p>
+					</div>
+					<div class="flex-4">
+						<p class="bold">GATE</p>
+						<p>26</p>
+					</div>
+					<div class="flex-4">
+						<p class="bold">SEAT</p>
+						<p>16C</p>
+					</div>
+
+					<div class="flex-12 card-float mt pl">
+						<img loading="lazy" src="../img/profile.png" class="card-float-img h-5 round-5 bg-info mr">
+						<!-- <div class="t-left bold"> -->
+						<p class="t-left bold py">Scott lang</p>
+						<!-- </div> -->
+					</div>
+				</div>
+
+				<div class="day-24-purple w-90%  h-1 shadow-bottom"></div>
+				<div class="day-24-purple w-80%  h-1 shadow-bottom mb-2"></div>
+				<!--  -->
+				<i class="fas fa-qrcode t-8   box bg-light t-purple"></i>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<section class="bg-orange">
+		<div class="content    day-25 bg-orange-dark img-container">
+			<img loading="lazy"
+				src="https://p3c8r6f2.rocketcdn.me/web/wp-content/uploads/2020/04/Westworld-series-tv-posters-hbo.jpg " alt=""
+				class="opacity-6 blur-5">
+			<!--  -->
+			<div class=" day-25-header ">
+				<div class="md:flex-6">
+					<i class="fas fa-wifi mx"></i>
+					<span>Connected to HTQM Home Wifi</span>
+				</div>
+
+				<div class="">
+					<p>New York</p>
+					<p class="t-uppercase">february 04, 2021 | 7:00 pm</p>
+				</div>
+
+
+				<ul class="flex md:flex-6 t-uppercase t-md">
+					<li class="round-5 btn bg-orange-dark">home</li>
+					<li class="round-5 btn ">Movies</li>
+					<li class="round-5 btn ">shows</li>
+					<li class="round-5 btn ">music</li>
+				</ul>
+
+				<!-- <div class=" input-group  ">
+					<i class="round-4 fas fa-search search-bar-icon bg-warning "></i>
+					<input class="round-4  input-control" placeholder="search" type="text">
+				</div> -->
+				<div class=" flex ai-center ">
+					<i class="fas fa-search mr"></i>
+					<input class="round-4  b-0 flex-auto bg-t day-25-input" placeholder="search" type="text">
+				</div>
+
+			</div>
+			<!--  -->
+			<div class="day-25-body">
+				<div class="crop round-1 h-400  day-25-flayer">
+					<img loading="lazy"
+						src="https://p3c8r6f2.rocketcdn.me/web/wp-content/uploads/2020/04/Dexter-series-tv-poster-showtime-1.jpg "
+						alt="">
+					<div class="  day-25-label t-md t-uppercase">
+						<span class="">Dexter</span>
+						<button class="bg-danger  round-3">watch it</button>
+					</div>
+				</div>
+				<!--  -->
+				<div class="crop round-1 h-400  day-25-flayer">
+					<img loading="lazy"
+						src="https://p3c8r6f2.rocketcdn.me/web/wp-content/uploads/2020/04/Westworld-series-tv-posters-hbo.jpg "
+						alt="">
+					<div class="  day-25-label t-md t-uppercase">
+						<span class="">Westworld</span>
+						<button class="bg-danger  round-3">watch it</button>
+					</div>
+				</div>
+				<!--  -->
+				<div class="crop round-1 h-400 day-25-flayer">
+					<img loading="lazy" src="https://www.indiewire.com/wp-content/uploads/2017/07/sinner.jpg?w=800" alt="">
+					<div class="  day-25-label t-md t-uppercase">
+						<span class="">the sinner</span>
+						<button class="bg-danger  round-3">watch it</button>
+					</div>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+	</section>
+
+
+	<!--******************************************-->
+	<section>
+		<div class="content grid md:col-2 bg-blue  t-light day-26">
+			<div class="day-26-1 p-2 relative ">
+				<h1>Brand name</h1>
+
+				<img loading="lazy" src="../img/mail.png" alt="" class=" day-26-img">
+			</div>
+			<!--  -->
+			<div class=" flex-col day-26-2">
+				<div class="flex w-fit-content self-flex-end">
+					<button class="b-bottom-1  b-light">Home</button>
+					<button class="  ">Products</button>
+					<button class="  ">Teams</button>
+					<button class="  ">Contact</button>
+				</div>
+
+				<div class="my-8">
+					<h1><strong>Subscribe</strong> <br>
+						to our newsletter
+					</h1>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, nesciunt!</p>
+					<div class=" input-group  mt-2 ">
+						<input class="bg-t  t-light input-control ph-gray-light b-bottom-1  b-light b-solid" placeholder="email"
+							type="text">
+						<i class="fas fa-search input-icon-in bg-info-light t-light round-4"></i>
+					</div>
+				</div>
+
+				<div class="flex-col">
+					<a href="" class="a">Who we are?</a>
+					<a href="" class="a">Common questions?</a>
+					<a href="" class="t-light">Newsletter</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<main class="bg-dark-t  pb-3 asymetric ">
+		<nav class=" content-a mb-5 py-2 px md:px-0">
+			<div class=" navbar-sm  ai-center ">
+				<!-- <a>TB</a> -->
+				<img src="../img/TB.svg" alt="">
+				<button class="navbar-toggle">x</button>
+				<!--  -->
+				<div class="navbar-list flex-6 md:show">
+					<a class="">home</a>
+					<a class="">contact</a>
+					<a class="">contact</a>
+					<a class="">contact</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- ----------------------------------------- -->
+		<div class="z-tooltip content-a grid relative mb-3">
+
+			<div class=" md:absolute p">
+				<h1 class="t-uppercase t-8 md:t-20  t-orange-dark bold">the box</h1>
+				<h3 class="t-gray mb-3">Richmond, VA</h3>
+				<p class="md:w-50% pr mb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reiciendis maiores
+					minus
+					fugiat
+					impedit
+					accusantium at laborum consequatur, autem doloribus recusandae mollitia temporibus cum dignissimos! Atque
+					velit eum odio repellat.</p>
+				<button class="asymetric-btn">Book now</button>
+			</div>
+			<!--  -->
+			<!-- <div class="content-xl-a">
+				<img src="../img/house.jpg" alt="" class="float-right">
+			</div> -->
+		</div>
+		<!--  -->
+		<div class="relative  md:w-100% md:h-600 crop px md:px-0 ">
+			<img src="../img/house.jpg" alt="" class="md:absolute left-50%">
+		</div>
+		<!-- ----------------------------------------- -->
+		<div class=" content-a grid col-1 md:col-2 ai-center mt-3  md:mt-5 px md:px-0 ">
+
+			<div class="flex-col sm:flex gap ai-center md:mb-0 mb-3">
+				<img src="../img/little-1.jpg" class="sm:flex-5" alt="">
+				<img src="../img/little-2.jpg" class="sm:flex-5" alt="">
+				<i class="fas fa-chevron-right flex-1 sm:show"></i>
+			</div>
+			<!--  -->
+			<div class="md:w-250 w-100%   flex ai-center t-4  md:order--1 mx-a md:ml-0 md:mr-a">
+				<i class="fab fa-snapchat-ghost"></i>
+				<i class="fab fa-airbnb"></i>
+				<i class="fab fa-instagram"></i>
+			</div>
+
+		</div>
+
+	</main>
+
+
+
+	<!--******************************************-->
+	<section class="day-27-bg ">
+		<div class=" day-27 hover:bg-danger-light p " id="dropdown1">
+			<div class=" t-center relative">
+				<img src="../img/profile.png" alt="" class="bg-light round-circle b-4 b-solid b-dark">
+				<button class="t-light  t-3 bold ">Dropdown menu</button>
+
+				<div class="flex-col w-100% absolute  day-27-menu z-modal hide shadow-bottom" id="dropdownMenu1">
+					<div class="p t-md t-dark bg-light round-top-1 bold t-2">Select </div>
+					<div class="p t-md t-light t-left bg-danger-light-hover">
+						<i class="fas fa-flag-checkered pr"></i>
+						English
+					</div>
+					<div class="p t-md t-light t-left bg-danger-light-hover"> <i class="fas fa-flag-checkered pr"></i>German
+					</div>
+					<div class="p t-md t-light t-left bg-danger-light-hover"> <i class="fas fa-flag-checkered pr"></i>Italian
+					</div>
+					<div class="p t-md t-light t-left bg-danger-light-hover round-bottom-1"> <i
+							class="fas fa-flag-checkered pr"></i>Spanish</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!---------------------------------------------->
+
+	<section class="day-28-bg bg-gray-light">
+
+
+		<div class="content-movile bg-white relative z-normal shadow-lg">
+
+
+			<!-- <div class="z-normal "> -->
+			<div class="bg-info-light flex ai-flex-end h-150 p sm:p-2 t-light bold ">
+				<p>Contact us</p>
+				<span>x</span>
+			</div>
+
+			<div class="p sm:p-2  gap-col-2 z-normal bg-white pb-3">
+				<div class="flex gap-1 ai-center jc-start t-gray">
+					<i class="far fa-id-badge float-left mr "></i>
+					<p class="t-uppercase">name</p>
+				</div>
+
+				<div class="flex gap-1 ai-center jc-start">
+					<p class="t-uppercase mr-a">Steven Spielberg</p>
+					<i class="far fa-check-square float-right"></i>
+				</div>
+
+				<div class="flex gap-1 ai-center jc-start t-gray">
+					<i class="far fa-envelope mr"></i>
+					<p class="t-uppercase ">email</p>
+				</div>
+
+				<div class="flex gap-1 ai-center jc-start">
+					<p class="t-uppercase  mr-a">email@mail.com</p>
+					<i class="far fa-check-square float-right"></i>
+				</div>
+
+				<div class="flex gap-1 ai-center jc-start">
+					<p class="t-uppercase t-gray">Message</p>
+					<textarea name="" id="" cols="" rows="" class="b"></textarea>
+				</div>
+			</div>
+			<div class="day-28-back  t-3 shadow-lg">
+				<i class="fab fa-snapchat-ghost"></i>
+				<i class="fab fa-airbnb"></i>
+				<i class="fab fa-instagram"></i>
+				<i class="fab fa-telegram-plane day-28-plane"></i>
+			</div>
+			<!-- </div> -->
+
+		</div>
+
+	</section>
+
+	<!--******************************************-->
+
+	<section class=" day-30-bg">
+		<div class="container-lg  day-30 flex gap  round-2 relative shadow-lg">
+			<div class="flex-12 flex  md:px-3  jc-center day-30-cards md:mb-3">
+
+				<div class="flex-12  md:flex-4    z-normal day-30-card day-30-left ">
+					<img src="../img/color-paint.png" class="day-30-img round-top-2 opacity-8" alt="">
+					<h1 class=" bold absolute top-10% shadow-t left t-light t-5">basic</h1>
+					<div class="w-50% ml-3">
+						<p><span class="t-3 bold">$</span><span class="t-4 bold">27</span></p>
+						<p class="t-md t-gray">Basic plan</p>
+					</div>
+					<i class="fas fa-plus box-3 round-circle day-30-blue day-30-btn"></i>
+				</div>
+
+				<!--  -->
+				<div class=" flex-12  md:flex-4    z-normal day-30-card day-30-main">
+					<img src="../img/color-paint.png" class="day-30-img round-top-2 opacity-8" alt="">
+					<h1 class=" bold absolute top-10% shadow-t left t-light t-5">enterprice</h1>
+					<div class="w-50% ml-3">
+						<p><span class="t-3 bold">$</span><span class="t-4 bold">99</span></p>
+						<p class="t-md t-gray">Enterprice plan</p>
+					</div>
+					<i class="fas fa-check box-3 round-circle  day-30-btn"></i>
+				</div>
+
+				<!--  -->
+				<div class="flex-12  md:flex-4    z-normal day-30-card  day-30-right  ">
+					<img src="../img/color-paint.png" class="day-30-img round-top-2 opacity-8" alt="">
+					<h1 class=" bold absolute top-10% shadow-t left-right t-light t-5 ">medium</h1>
+					<div class="w-50% ml-3">
+						<p><span class="t-3 bold">$</span><span class="t-4 bold">55</span></p>
+						<p class="t-md t-gray">Medium plan</p>
+					</div>
+					<i class="fas fa-plus box-3 round-circle day-30-orange day-30-btn"></i>
+				</div>
+			</div>
+			<!-- --------------------- -->
+			<div class="flex-12 md:flex-6 t-light  day-30-info-left">
+				<p class="">Professional Plan</p>
+				<p class="t-gray t-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae minus
+					reprehenderit
+					dolorem quia, hic
+					unde eos fugiat libero quis.</p>
+			</div>
+			<!--  -->
+			<div class="flex-12 md:flex-6 flex t-light day-30-info-right">
+				<span class="flex-3">500Gb</span>
+				<div class="bg-dark h-2 flex-9 round-3">
+					<div class="h-100% w-90% day-30-blue round-3"></div>
+				</div>
+				<span class="flex-3">3 Years</span>
+				<div class="bg-dark h-2 flex-9 round-3">
+					<div class="h-100% w-70% day-30-purple round-3"></div>
+				</div>
+			</div>
+			<button class="btn round t-2 day-30-btn">Continue</button>
+		</div>
+	</section>
+
+	<!--******************************************-->
+
+	<section class="bg-gray-light">
+		<div class="content bg-white relative  round-2 day-32 round-bottom-2 shadow ">
+			<div class="img-container day-32-img h-200 ">
+
+				<img src="../img/lion.jpg" alt="" class=" round-top-2 ">
+			</div>
+			<!--  -->
+			<div class="grid md:col-3-1  relative">
+				<div class="px-2 gap-col">
+
+					<h1 class="bold">Cat food</h1>
+					<p class="bold ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, distinctio!</p>
+					<p class="t-gray ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptas! Rem commodi
+						facilis enim libero tempore? Ipsa magni nam molestias id. Repellat, tempora excepturi! Quaerat animi
+						asperiores quo nostrum eum... <a href="" class="a">Read more</a> </p>
+					<div class="flex ">
+						<div class="">
+							<p class="bold t-4">53</p>
+							<p class="t-gray">Backers</p>
+						</div>
+						<div class="">
+							<p class="bold t-4">45,34</p>
+							<p class="t-gray">Lorem ipsum dolor sit.</p>
+						</div>
+						<div class="">
+							<p class="bold t-4">12</p>
+							<p class="t-gray">days to go</p>
+						</div>
+					</div>
+				</div>
+				<!--  -->
+				<div class="relative crop ">
+					<h2 class="t-10 day-32-offer bold t-success">90
+
+						<span class="t-5 t-bold md:hide">%</span>
+					</h2>
+				</div>
+			</div>
+			<!--  -->
+			<div class="flex p-2 ai-center">
+
+				<div class="h-1 round bg-gray-light flex-auto ">
+					<div class="h-100% w-90% bg-success round"></div>
+				</div>
+
+				<span class="t-5 t-bold md:show mx">%</span>
+			</div>
+			<!--  -->
+			<div class=" day-32-label t-light bold z-tooltip ">
+				<p class="p bg-success w-fit-content round-top-1 round-right-1 t-3 shadow-bottom">Pledge 1$ or more</p>
+				<div class="day-32-triangle sm:show"></div>
+			</div>
+
+			<i class="fas fa-times absolute box-3 top-0% right-0% t-light z-tooltip"></i>
+		</div>
+	</section>
+	<!--******************************************-->
+
+	<section class="bg-dark day-35-bg">
+		<!-- <a href='https://es.pngtree.com/so/bolso-de-mujer'>bolso de mujer png de es.pngtree.com</a> -->
+
+		<div class="   relative  day-35 ">
+			<div class="content-sm bg-white z-tooltip round-2 crop shadow-right-lg">
+				<div class="img-container h-300 relative">
+					<img src="../img/eggs.jpg" alt="">
+
+					<div class="flex  p t-light">
+						<i class="fas fa-arrow-left"></i>
+						<i class="far fa-heart"></i>
+					</div>
+					<i
+						class="fas fa-utensils box-2 round-3 t-3 bg-orange bg-orange-dark-hover t-light absolute left-10% bottom-10%"></i>
+					<span class="absolute bottom-10% right-10%  bg-gray-light round-2 btn">200ml</span>
+				</div>
+				<div class="spikes"></div>
+				<div class="p-2 relative ">
+
+					<h1 class="t-6 bold">il domacca</h1>
+					<p class="mb-2">Lorem ipsum dolor sit amet.</p>
+					<p class="t-uppercase t-gray">opening hours</p>
+					<p class="mb-2">8PM - 8PM</p>
+					<p class="t-uppercase t-gray">description</p>
+					<p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus commodi eligendi totam alias
+						veniam, quos
+						ipsa
+						quasi officiis tempora aliquam, magnam maiores iusto non aut dolorem! Fugit eligendi reiciendis dolorem.</p>
+				</div>
+			</div>
+			<!--  -->
+			<div class="img-var t-light flex align-center h-80%  shadow-in-lg lg:absolute top-10% left-80% md:content-movile "
+				style="--url: url(https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80)">
+				<!-- <div
+				class="img-container t-light flex align-center h-80%  shadow-in-lg lg:absolute top-10% left-80% md:content-movile ">
+				<img
+					src="https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80"
+					alt=""> -->
+
+				<div class="b-4 b-light p t-center lg:t-right mx-a ">
+					<h1 class="t-uppercase lg:t-7">Paleo</h1>
+					<h2 class="t-uppercase bold lg:t-7">cooking</h2>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+
+	<!--******************************************-->
+	<section class="day-36-bg">
+		<div class="content gap flex ">
+			<!--  -->
+			<div class="day-36-col ">
+				<div class=" relative ">
+					<i class="fas fa-bars t-blue-light absolute left center"></i>
+					<h1 class="h4 t-center bold ">Special offer</h1>
+				</div>
+				<!--  -->
+				<div class="flex gap p my-2">
+					<div class="round-3 day-36-card w-100% sm:flex-6 mb-2">
+						<img class="h-150" src="../img/decoration1.png" alt="">
+						<p class="t-underline">Decoration</p>
+					</div>
+					<div class="round-3 day-36-card w-100% sm:flex-6 mb-2">
+						<img class="h-150" src="../img/decoration2.png" alt="">
+						<p class="t-underline">Decoration</p>
+					</div>
+					<div class="round-3 day-36-card w-100% sm:flex-6 mb-2">
+						<img class="h-150" src="../img/decoration3.png" alt="">
+						<p class="t-underline">Decoration</p>
+					</div>
+					<div class="round-3 day-36-card w-100% sm:flex-6 mb-2">
+						<img class="h-150" src="../img/decoration4.png" alt="">
+						<p class="t-underline">Decoration</p>
+					</div>
+				</div>
+				<button class="t-uppercase btn-xl bg-danger hover:bg-danger-light mx-a px-2">Buy now</button>
+			</div>
+			<!-- ----------- -->
+			<div class="day-36-col  ">
+				<div class=" relative ">
+					<i class="fas fa-bars t-blue-light absolute left center"></i>
+					<h1 class="h4 t-center bold t-light">Special offer</h1>
+				</div>
+				<!--  -->
+				<div class="round-3 day-36-card  round-circle  my-2 pt-4">
+					<img class="" src="../img/decoration5.png" alt="">
+					<p class="t-underline">Decoration</p>
+					<p class="t-gray-light my px-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus laboriosam
+						quasi
+						dignissimos molestiae iusto, esse facere quam minima, beatae, ex corporis ad quisquam maiores! Quam optio
+						quia vero. Quasi, enim?</p>
+					<i class="fas fa-chevron-down t-blue-dark t-blue-light-hover  "></i>
+				</div>
+				<button class="t-uppercase btn-xl bg-blue-dark hover:bg-blue-light mx-a px-2">Buy now</button>
+			</div>
+		</div>
+	</section>
+
+	<!--******************************************-->
+
+	<section class="bg-gray">
+		<div class="content  flex gap-2 t-light  ">
+			<!--  -->
+			<div class="bg-black w-100% md:flex-6 flex-col img-container">
+				<img src="https://cdn.pixabay.com/photo/2019/08/03/04/43/mountain-4381041_960_720.png" alt="" class="opacity-6">
+				<div class="flex ai-center mb-10">
+					<i class="box-3 fas fa-bars "></i>
+					<p class="mr-a t-info-light bold">MUMBAI</p>
+					<i class="box-3 fas fa-search "></i>
+					<i class="box-3 fas fa-share-alt"></i>
+					<!--  -->
+					<div class=" flex ai-center px flex-12">
+						<p class="t-8">24</p>
+						<div class="mr-a t-info-light bold t-3">
+							<p>°C</p>
+							<p>SUNNY</p>
+						</div>
+						<div class="t-right t-2">
+							<p class="">13 FEB, SAT</p>
+							<p class="t-pink">02:00PM</p>
+						</div>
+					</div>
+				</div>
+				<!--  -->
+				<div class="t-gray flex nowrap bg-light p t-small ">
+
+					<div class="t-center gap-col">
+						<p>SUN</p>
+						<i class="fas fa-sun"></i>
+						<p>24</p>
+					</div>
+					<div class="t-center gap-col">
+						<p>MON</p>
+						<i class="fas fa-cloud-sun-rain"></i>
+						<p>24</p>
+					</div>
+					<div class="t-center gap-col">
+						<p>TUE</p>
+						<i class="fas fa-cloud"></i>
+						<p>24</p>
+					</div>
+					<div class="t-center gap-col">
+						<p>WED</p>
+						<i class="fas fa-sun"></i>
+						<p>24</p>
+					</div>
+					<div class="t-center gap-col">
+						<p>THU</p>
+						<i class="fas fa-cloud-sun-rain"></i>
+						<p>24</p>
+					</div>
+					<div class="t-center gap-col">
+						<p>FRI</p>
+						<i class="fas fa-cloud-sun-rain"></i>
+						<p>24</p>
+					</div>
+					<div class="t-pink-dark t-center gap-col ">
+						<p>SAT</p>
+						<i class="fas fa-cloud"></i>
+						<p>24</p>
+					</div>
+				</div>
+			</div>
+			<!-- ------------- -->
+			<div class="bg-white w-100% md:flex-6 t-black ">
+				<div class=" flex ai-center ">
+					<i class="box-3 fas fa-arrow-left "></i>
+					<p class="mr-a ">LOCATIONS</p>
+					<i class="box-3 fas fa-ellipsis-h"></i>
+				</div>
+				<!--  -->
+				<div class="flex p gap ai-center">
+					<p class="flex-8 t-small t-gray">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, doloremque
+						cupiditate.</p>
+					<div class="flex-auto t-center t-blue-light">
+						<i class="fas fa-plus"></i>
+						<p>ADD PLACE</p>
+					</div>
+				</div>
+				<!--  -->
+				<p class="p a">Choose place</p>
+				<div class="flex bg-blue-light t-light p shadow-bottom">
+					<div class="">
+						<p class="bold">Numbai</p>
+						<p class="t-small t-gray">Humidity: 51%</p>
+					</div>
+					<p class="t-small t-gray">28, Sunny</p>
+				</div>
+				<div class="flex  p">
+					<div class="">
+						<p class="bold">Numbai</p>
+						<p class="t-small t-gray">Humidity: 51%</p>
+					</div>
+					<p class="t-small t-gray">28, Sunny</p>
+				</div>
+				<div class="flex  p">
+					<div class="">
+						<p class="bold">Numbai</p>
+						<p class="t-small t-gray">Humidity: 51%</p>
+					</div>
+					<p class="t-small t-gray">28, Sunny</p>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<section>
+		<div class="content flex  t-light shadow-bottom-lg">
+			<!--  -->
+			<div class="w-100% md:flex-9 bg-purple p-sm">
+				<div class="flex nowrap">
+					<span class="box-3">SUN</span>
+					<span class="box-3">MON</span>
+					<span class="box-3 b-bottom-3 b-pink-dark">TUE</span>
+					<span class="box-3 ">WED</span>
+					<span class="box-3">THU</span>
+					<span class="box-3">FRI</span>
+					<span class="box-3">SAT</span>
+				</div>
+				<div class="flex nowrap">
+					<span class="box-3"></span>
+					<span class="box-3"></span>
+					<span class="box-3"></span>
+					<span class="box-3"></span>
+					<span class="box-3"></span>
+					<span class="box-3">1</span>
+					<span class="box-3">2</span>
+				</div>
+				<div class="flex nowrap">
+					<span class="box-3">3</span>
+					<span class="box-3">4</span>
+					<span class="box-3 round-circle bg-pink-dark">5</span>
+					<span class="box-3">6</span>
+					<span class="box-3">7</span>
+					<span class="box-3">8</span>
+					<span class="box-3">9</span>
+				</div>
+				<div class="flex nowrap">
+					<span class="box-3">10</span>
+					<span class="box-3">11</span>
+					<span class="box-3">12</span>
+					<span class="box-3">13</span>
+					<span class="box-3">14</span>
+					<span class="box-3">15</span>
+					<span class="box-3">16</span>
+				</div>
+				<div class="flex nowrap">
+					<span class="box-3">17</span>
+					<span class="box-3">18</span>
+					<span class="box-3">19</span>
+					<span class="box-3">20</span>
+					<span class="box-3">21</span>
+					<span class="box-3">22</span>
+					<span class="box-3">23</span>
+				</div>
+				<div class="flex nowrap">
+					<span class="box-3">24</span>
+					<span class="box-3">25</span>
+					<span class="box-3">26</span>
+					<span class="box-3">27</span>
+					<span class="box-3">28</span>
+					<span class="box-3">29</span>
+					<span class="box-3">30</span>
+				</div>
+				<div class="flex nowrap">
+					<span class="box-3">31</span>
+				</div>
+				<!--  -->
+
+
+			</div>
+			<!-- -------------- -->
+			<div class="w-100% md:flex-3 bg-purple-dark flex-col t-light p-sm ai-center">
+				<div class="flex ai-center mb-2">
+					<img src="../img/profile.png" alt="" class="round-circle box-4 bg-light shadow ">
+					<div class="ml md:hide">
+						<span class="bold">SAM´S</span> <span class="">BIRTHDAY</span>
+					</div>
+				</div>
+				<p class="t-gray">Dec</p>
+				<p class="t-5 ">Jan</p>
+				<p class="t-gray">Feb</p>
+				<p class=" t-line-10">2016</p>
+				<img src="../img/decoration6.png" alt="" class="round-circle box-4 mt-2">
+				<p class="md:show "><span class="bold">SAM´S</span> <span class="">BIRTHDAY</span></p>
+
+			</div>
+		</div>
+	</section>
+	<!--******************************************-->
+	<section class="bg-pink img-container">
+		<img src="../img/house.jpg" alt="">
+		<!--  -->
+		<div class="content-sm shadow-lg round-3 crop">
+			<div class=" blur-5-bg h-150 "></div>
+			<!--  -->
+			<div class=" bg-light flex-col ai-center p-md relative t-center gap-col-2">
+				<img src="../img/profile.png" class="round-circle bg-pink absolute  bottom-80%" alt="">
+				<i class="fas fa-quote-right"></i>
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, corrupti!</p>
+				<p>Sam D./IKG.inc</p>
+				<div class="t-1">
+					<i class="fas fa-circle"></i>
+					<i class="far fa-circle"></i>
+					<i class="far fa-circle"></i>
+					<i class="far fa-circle"></i>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+	<!--******************************************-->
+	<section class="day-40-bg">
+		<div class="day-40 ">
+			<div class="day-40-col">
+				<div class="day-40-menu ">
+					<i class="fas fa-arrow-left day-40-arrow"></i>
+					<p>Meals a day</p>
+				</div>
+				<!--  -->
+				<div class="day-40-pic">
+					<img src="../img/decoration4.png" alt="">
+				</div>
+				<!--  -->
+				<div class="day-40-body">
+					<h4 class="bold">Strawberry Cake</h4>
+					<p>976 Views / 92 Likes</p>
+					<div class="day-40-stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<button class="btn-xl bg-pink-dark t-light round-5 px-3">View Recipe</button>
+				</div>
+			</div>
+			<!-- ---------- -->
+			<div class="day-40-col relative">
+				<div class="bg-pink-dark px pt t-light">
+					<div class="flex  relative ai-center">
+						<i class="fas fa-arrow-left "></i>
+						<p>Strawberry Cake</p>
+						<i class="fas fa-ellipsis-h"></i>
+					</div>
+					<div class="flex  relative ai-center t-center mt">
+						<div class="pb">
+							<i class="fas fa-blender"></i>
+							<p class="t-small">Ingredients</p>
+						</div>
+						<div class="pb t-gray-light">
+							<i class="fas fa-hourglass-half"></i>
+							<p class="t-small">Ingredients</p>
+						</div>
+						<div class="pb t-gray-light">
+							<i class="fas fa-ellipsis-h"></i>
+							<p class="t-small">Ingredients</p>
+						</div>
+					</div>
+				</div>
+				<!--  -->
+				<div class="p t-small">
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">100g</span>
+					</div>
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">10g</span>
+					</div>
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">50g</span>
+					</div>
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">79g</span>
+					</div>
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">10g</span>
+					</div>
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">100g</span>
+					</div>
+					<!--  -->
+					<div class="py flex jc-start ai-center">
+						<i class="fas fa-blender box-2 t-pink-dark"></i>
+						<span class="">high-quality flour</span>
+						<span class="ml-a">100g</span>
+					</div>
+					<!--  -->
+				</div>
+				<!--  -->
+				<i class="fas fa-heart day-40-like"></i>
+			</div>
+		</div>
+	</section>
+
+	<!--******************************************-->
+	<section class="bg-dark">
+		<div class="card-hover content-movile bg-black img-container flex h-500 round-4">
+			<img src="../img/img2.jpg" alt="" class="opacity-3">
+
+			<div class="card-hover-body   t-light  self-flex-end">
+				<h1 class="mx-sm bold h3 ">Lorem, ipsum dolor.</h1>
+				<hr class="b-green-light  card-hover-line mb">
+				<p class="mx-sm ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eveniet qui commodi esse
+					odio
+					minus?</p>
+				<button class="m-sm bg-green-light-t round-3 px">See more</button>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<!--==========================================-->
+	<footer class="bg-dark t-center flex ">
+		<div class="content flex jc-center">
+		<button class="bg-orange "><a href="index.html">first</a></button>
+		<button class="bg-white" id="toggledark"> <i class="fas fa-moon"></i></button>
+	</div>
+	</footer>
+
+
+</body>
+<!-- === === === === === === script === === === === === === -->
+
+<!-----------------------dropdown----------------------->
+<script>
+	const dropdown1 = document.querySelector("#dropdown1");
+	const dropdownMenu1 = document.querySelector("#dropdownMenu1");
+	dropdown1.addEventListener("click", () => {
+		dropdownMenu1.classList.toggle("hide")
+	})
+</script>
+
+
+<!-----------------------dark mode----------------------->
+<script type="text/javascript">// Apply the cached theme on reload
+	const theme = localStorage.getItem("theme");
+	if (theme) {
+		// body.classList.add(theme);
+		document.body.classList.toggle(theme);
+	}
+	// Select the button
+	const darkBtn = document.querySelector("#toggledark");
+	// Listen for a click on the button
+	darkBtn.addEventListener("click", function () { switchTheme("dark-theme"); });
+	function switchTheme(themeName) {
+		document.body.classList.toggle(themeName);
+		if (!theme) {
+			localStorage.setItem("theme", "dark-theme");
+		} else {
+			localStorage.removeItem("theme");
+		}
+	}</script>
+
+
+<!-----------------------html font size----------------------->
+<script>
+	var html = document.getElementsByTagName('html')[0];
+	function fontSize(size = "10%") {
+		html.style.fontSize = size
+	}
+</script>
+<!---------------------------------------------->
+
+
+
+</html>
